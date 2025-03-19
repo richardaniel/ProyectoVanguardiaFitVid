@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutinas - FitVid</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #6e48aa 0%, #9e48cd 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #6e48aa;
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #f0e6ff;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1 {
+      color: #6e48aa;
+      margin-bottom: 2rem;
+    }
+    .rutinas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .rutina-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .rutina-card img, .rutina-card div.placeholder {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .rutina-card div.placeholder {
+      background-color: #ffc107;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .rutina-card h2 {
+      padding: 1rem;
+      margin: 0;
+      color: #6e48aa;
+    }
+    .rutina-card p {
+      padding: 0 1rem 1rem;
+      color: #666;
+    }
+    .rutina-card .meta {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem 1rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FitVid</h1>
+    <p>Tu comunidad de fitness en español</p>
+  </header>
+  
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="rutinas.html">Rutinas</a>
+    <a href="recetas.html">Recetas</a>
+    <a href="comunidad.html">Comunidad</a>
+  </nav>
+  
+  <main>
+    <h1>Rutinas de Ejercicios</h1>
+    
+    <div class="rutinas-grid">
+      <div class="rutina-card">
+        <div class="placeholder">
+          <span style="font-size: 4rem; color: white;">🏃</span>
+        </div>
+        <h2>HIIT para principiantes</h2>
+        <p>Una rutina de alta intensidad de 20 minutos perfecta para quienes comienzan.</p>
+        <div class="meta">
+          <span>Dificultad: Principiante</span>
+          <span>20 min</span>
+        </div>
+      </div>
+      
+      <div class="rutina-card">
+        <div class="placeholder">
+          <span style="font-size: 4rem; color: white;">🏋️</span>
+        </div>
+        <h2>Entrenamiento de fuerza</h2>
+        <p>Desarrolla músculo y aumenta tu fuerza con esta rutina completa.</p>
+        <div class="meta">
+          <span>Dificultad: Intermedio</span>
+          <span>45 min</span>
+        </div>
+      </div>
+      
+      <div class="rutina-card">
+        <div class="placeholder">
+          <span style="font-size: 4rem; color: white;">🧘</span>
+        </div>
+        <h2>Yoga para flexibilidad</h2>
+        <p>Mejora tu flexibilidad y reduce el estrés con esta sesión de yoga.</p>
+        <div class="meta">
+          <span>Dificultad: Todos los niveles</span>
+          <span>30 min</span>
+        </div>
+      </div>
+      
+      <div class="rutina-card">
+        <div class="placeholder">
+          <span style="font-size: 4rem; color: white;">🤸</span>
+        </div>
+        <h2>Entrenamiento de core</h2>
+        <p>Fortalece tu core y mejora tu postura con estos ejercicios específicos.</p>
+        <div class="meta">
+          <span>Dificultad: Intermedio</span>
+          <span>25 min</span>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 FitVid - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    // Aquí se puede agregar código JavaScript para cargar dinámicamente las rutinas desde el backend
+    // Por ejemplo:
+    /*
+    fetch('http://localhost:8000/api/ejercicios')
+      .then(response => response.json())
+      .then(data => {
+        // Código para mostrar las rutinas en la página
+      })
+      .catch(error => console.error('Error:', error));
+    */
+  </script>
+</body>
+</html>
