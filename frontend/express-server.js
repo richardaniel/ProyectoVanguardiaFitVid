@@ -1,4 +1,4 @@
-// Simple Express server para servir archivos estáticos
+// Servidor Express simplificado para servir archivos estáticos
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -12,9 +12,20 @@ const PORT = 5000;
 // Usar CORS para permitir solicitudes desde cualquier origen
 app.use(cors());
 
-// Directorio de archivos estáticos - intentar ambas ubicaciones
+// Registrar todas las solicitudes
+app.use((req, res, next) => {
+  console.log(`Solicitud: ${req.method} ${req.url}`);
+  next();
+});
+
+// Configurar encabezados para permitir YouTube videos e inline styles
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; frame-src https://www.youtube.com; connect-src 'self';");
+  next();
+});
+
+// Servir archivos estáticos desde el directorio 'static'
 app.use(express.static(path.join(__dirname, 'static')));
-app.use(express.static(__dirname));
 
 // Rutas específicas
 app.get('/rutinas', (req, res) => {
@@ -32,21 +43,13 @@ app.get('/comunidad', (req, res) => {
   res.sendFile(path.join(__dirname, 'static', 'comunidad.html'));
 });
 
-// Ruta por defecto
+// Ruta principal
 app.get('/', (req, res) => {
   console.log('Solicitud a /');
   res.sendFile(path.join(__dirname, 'static', 'index.html'));
 });
 
-// Mostrar todas las rutas disponibles
-app.get('*', (req, res, next) => {
-  console.log(`Ruta solicitada: ${req.originalUrl}`);
-  next();
-});
-
 // Iniciar el servidor
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor Express ejecutándose en http://0.0.0.0:${PORT}`);
-  console.log(`Directorio de archivos estáticos: ${path.join(__dirname, 'static')}`);
-  console.log(`Directorio actual: ${__dirname}`);
 });

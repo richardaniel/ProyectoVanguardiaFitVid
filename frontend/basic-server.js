@@ -20,7 +20,7 @@ const serveFile = (filePath, contentType, res) => {
     res.writeHead(200, {
       'Content-Type': contentType,
       'Access-Control-Allow-Origin': '*',
-      'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; frame-src https://www.youtube.com;"
+      'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; frame-src https://www.youtube.com; connect-src 'self';"
     });
     
     res.end(content, 'utf-8');
@@ -49,6 +49,17 @@ const server = http.createServer((req, res) => {
   // Para la ruta raíz, servir index.html
   if (url === '/' || url === '') {
     url = '/index.html';
+  }
+  
+  // Rutas especiales sin extensión
+  if (url === '/rutinas') {
+    url = '/rutinas.html';
+  }
+  if (url === '/recetas') {
+    url = '/recetas.html';
+  }
+  if (url === '/comunidad') {
+    url = '/comunidad.html';
   }
   
   // Obtener la extensión del archivo
