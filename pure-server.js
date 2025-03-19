@@ -1,79 +1,97 @@
-// Servidor HTTP extremadamente simple para servir archivos estáticos
+// Servidor HTTP puro para FitVid
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 const PORT = 5000;
-const STATIC_DIR = path.join(__dirname, 'static-test');
 
-// Función para determinar el tipo de contenido
+// Tipos MIME comunes
 function getContentType(filePath) {
-  const ext = path.extname(filePath).toLowerCase();
-  const types = {
-    '.html': 'text/html',
-    '.css': 'text/css',
-    '.js': 'text/javascript',
-    '.png': 'image/png',
-    '.jpg': 'image/jpeg',
-    '.jpeg': 'image/jpeg',
-    '.gif': 'image/gif',
-    '.ico': 'image/x-icon',
-    '.svg': 'image/svg+xml'
-  };
-  return types[ext] || 'text/plain';
+  const extname = path.extname(filePath);
+  switch (extname) {
+    case '.html':
+      return 'text/html';
+    case '.css':
+      return 'text/css';
+    case '.js':
+      return 'text/javascript';
+    case '.json':
+      return 'application/json';
+    case '.png':
+      return 'image/png';
+    case '.jpg':
+    case '.jpeg':
+      return 'image/jpeg';
+    case '.svg':
+      return 'image/svg+xml';
+    default:
+      return 'text/plain';
+  }
 }
 
 // Crear el servidor
 const server = http.createServer((req, res) => {
-  console.log(`📝 Solicitud: ${req.method} ${req.url}`);
+  console.log(`📥 Solicitud: ${req.url}`);
   
-  // Manejar la ruta raíz
-  let filePath = req.url === '/' ? '/index.html' : req.url;
-  
-  // Ruta completa al archivo
-  const fullPath = path.join(STATIC_DIR, filePath);
-  console.log(`🔍 Intentando servir: ${fullPath}`);
+  // Normalizar la URL
+  let filePath = '.' + req.url;
+  if (filePath === './') {
+    filePath = './frontend/index.html';
+  } else if (filePath === './rutinas') {
+    filePath = './frontend/rutinas.html';
+  } else if (filePath === './recetas') {
+    filePath = './frontend/recetas.html';
+  } else if (filePath === './comunidad') {
+    filePath = './frontend/comunidad.html';
+  } else {
+    // Para cualquier otro recurso (CSS, JS, imágenes), intentamos servir desde frontend/
+    filePath = './frontend' + req.url;
+  }
   
   // Verificar si el archivo existe
-  fs.exists(fullPath, (exists) => {
-    if (!exists) {
-      console.log(`❌ Archivo no encontrado: ${fullPath}`);
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error(`❌ Archivo no encontrado: ${filePath}`);
       res.writeHead(404, { 'Content-Type': 'text/html' });
-      res.end('<h1>Error 404</h1><p>Archivo no encontrado</p>');
+      res.end('<h1>404 No Encontrado</h1><p>El archivo solicitado no existe.</p>');
       return;
     }
     
-    // Leer el archivo
-    fs.readFile(fullPath, (err, content) => {
+    // Leer y servir el archivo
+    fs.readFile(filePath, (err, data) => {
       if (err) {
-        console.error(`❌ Error al leer el archivo: ${err.message}`);
+        console.error(`❌ Error al leer archivo: ${err}`);
         res.writeHead(500, { 'Content-Type': 'text/html' });
-        res.end('<h1>Error 500</h1><p>Error interno del servidor</p>');
+        res.end('<h1>500 Error del Servidor</h1><p>Error al procesar tu solicitud.</p>');
         return;
       }
       
-      // Enviar el archivo
-      res.writeHead(200, { 'Content-Type': getContentType(fullPath) });
-      res.end(content);
-      console.log(`✅ Archivo servido: ${fullPath}`);
+      // Enviar el archivo con el tipo MIME correcto
+      res.writeHead(200, { 'Content-Type': getContentType(filePath) });
+      res.end(data);
+      console.log(`✅ Archivo servido: ${filePath}`);
     });
   });
 });
 
-// Verificar la carpeta estática
-console.log(`\n📂 Verificando directorio: ${STATIC_DIR}`);
-if (!fs.existsSync(STATIC_DIR)) {
-  console.error(`❌ ERROR: El directorio ${STATIC_DIR} no existe`);
-  process.exit(1);
-}
-
-// Listar archivos en la carpeta
-console.log('📋 Archivos disponibles:');
-fs.readdirSync(STATIC_DIR).forEach(file => {
-  console.log(`   - ${file}`);
-});
-
 // Iniciar el servidor
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`\n🚀 Servidor HTTP en ejecución en http://0.0.0.0:${PORT}`);
+  console.log(`🚀 Servidor HTTP básico iniciado en http://0.0.0.0:${PORT}`);
+  
+  // Verificar que existen los archivos principales
+  const mainFiles = [
+    './frontend/index.html',
+    './frontend/rutinas.html',
+    './frontend/recetas.html',
+    './frontend/comunidad.html'
+  ];
+  
+  console.log('📂 Verificando archivos principales:');
+  mainFiles.forEach(file => {
+    if (fs.existsSync(file)) {
+      console.log(`   ✅ ${file} - OK`);
+    } else {
+      console.log(`   ❌ ${file} - NO EXISTE`);
+    }
+  });
 });

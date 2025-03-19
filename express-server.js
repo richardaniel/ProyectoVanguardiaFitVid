@@ -1,59 +1,79 @@
-// Servidor Express para la aplicación FitVid
+// Servidor Express directo para FitVid
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
-
-// Crear la aplicación Express
 const app = express();
 const PORT = 5000;
 
-// Verificar directorio y archivos
-const staticDir = path.join(__dirname, 'static-test');
-console.log(`📂 Verificando directorio: ${staticDir}`);
+// 1. Middleware para servir archivos estáticos
+app.use(express.static('public'));
 
-// Mostrar los archivos disponibles
-try {
-  const files = fs.readdirSync(staticDir);
-  console.log('📋 Archivos disponibles:');
-  files.forEach(file => {
-    console.log(`   - ${file}`);
-  });
-} catch (err) {
-  console.error(`❌ Error al leer el directorio: ${err.message}`);
-}
-
-// Configurar para servir archivos estáticos desde el directorio static-test
-app.use(express.static(staticDir));
-
-// Ruta para la página principal
+// 2. Rutas específicas para cada página
 app.get('/', (req, res) => {
-  console.log('📝 Solicitud recibida para la ruta principal');
-  res.sendFile(path.join(staticDir, 'index.html'));
+  console.log('📄 Sirviendo página de inicio...');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Ruta para las páginas específicas
 app.get('/rutinas', (req, res) => {
-  res.sendFile(path.join(staticDir, 'rutinas.html'));
+  console.log('📄 Sirviendo página de rutinas...');
+  res.sendFile(path.join(__dirname, 'public', 'rutinas.html'));
 });
 
 app.get('/recetas', (req, res) => {
-  res.sendFile(path.join(staticDir, 'recetas.html'));
+  console.log('📄 Sirviendo página de recetas...');
+  res.sendFile(path.join(__dirname, 'public', 'recetas.html'));
 });
 
 app.get('/comunidad', (req, res) => {
-  res.sendFile(path.join(staticDir, 'comunidad.html'));
+  console.log('📄 Sirviendo página de comunidad...');
+  res.sendFile(path.join(__dirname, 'public', 'comunidad.html'));
 });
 
-// Ruta de respaldo para cualquier otra solicitud
-app.get('*', (req, res) => {
-  console.log(`📝 Solicitud para ruta no encontrada: ${req.url}`);
-  res.sendFile(path.join(staticDir, 'index.html'));
+// 3. En caso de una ruta no encontrada
+app.use((req, res) => {
+  console.log(`⚠️ Ruta no encontrada: ${req.url}`);
+  res.status(404).send(`
+    <html>
+      <head>
+        <title>FitVid - Página no encontrada</title>
+        <style>
+          body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #0066cc 0%, #003366 100%);
+            color: white;
+          }
+          h1 { font-size: 3rem; margin-bottom: 20px; }
+          p { font-size: 1.2rem; margin-bottom: 30px; }
+          a { 
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+          }
+          a:hover { background-color: #388E3C; }
+        </style>
+      </head>
+      <body>
+        <h1>Página No Encontrada</h1>
+        <p>Lo sentimos, la página que estás buscando no existe en FitVid.</p>
+        <a href="/">Volver a la Página Principal</a>
+      </body>
+    </html>
+  `);
 });
 
 // Iniciar el servidor
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`
-📂 Sirviendo archivos desde: ${staticDir}
-🚀 Servidor FitVid en ejecución en http://0.0.0.0:${PORT}
+===========================================
+✅ Servidor FitVid iniciado exitosamente
+🌐 URL: http://0.0.0.0:${PORT}
+📂 Directorio público: ${path.join(__dirname, 'public')}
+===========================================
   `);
 });
