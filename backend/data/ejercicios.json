@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "nombre": "Press de Banca",
+    "parteCuerpoId": 1,
+    "descripcion": "Ejercicio clásico para desarrollar los músculos del pecho. Acuéstate en un banco plano, sujeta la barra con las manos separadas a una distancia mayor que los hombros y bájala hasta el pecho para luego empujarla hacia arriba.",
+    "series": 4,
+    "repeticiones": "8-12",
+    "video": "https://www.youtube.com/watch?v=rT7DgCr-3pg"
+  },
+  {
+    "id": 2,
+    "nombre": "Aperturas con Mancuernas",
+    "parteCuerpoId": 1,
+    "descripcion": "Acuéstate en un banco plano con una mancuerna en cada mano. Con los brazos extendidos perpendiculares al suelo, baja los brazos abriendo el pecho y luego vuelve a la posición inicial.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=eozdVDA78K0"
+  },
+  {
+    "id": 3,
+    "nombre": "Flexiones",
+    "parteCuerpoId": 1,
+    "descripcion": "Colócate boca abajo con las manos apoyadas en el suelo a la altura de los hombros. Mantén el cuerpo recto y baja hasta casi tocar el suelo con el pecho, luego empuja para volver a la posición inicial.",
+    "series": 4,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=IODxDxX7oi4"
+  },
+  {
+    "id": 4,
+    "nombre": "Press Inclinado",
+    "parteCuerpoId": 1,
+    "descripcion": "Similar al press de banca pero con el banco en posición inclinada para enfatizar la parte superior del pecho. Sujeta la barra y bájala hasta el pecho, luego empuja hacia arriba.",
+    "series": 3,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=0G2_XV7slIg"
+  },
+  {
+    "id": 5,
+    "nombre": "Fondos en Paralelas",
+    "parteCuerpoId": 1,
+    "descripcion": "Sujétate en barras paralelas con los brazos extendidos. Baja el cuerpo flexionando los codos hasta que los brazos formen un ángulo de 90 grados, luego empuja hacia arriba.",
+    "series": 3,
+    "repeticiones": "8-12",
+    "video": "https://www.youtube.com/watch?v=2z8JmcrW-As"
+  },
+  {
+    "id": 6,
+    "nombre": "Dominadas",
+    "parteCuerpoId": 2,
+    "descripcion": "Agárrate a una barra con las palmas mirando hacia afuera. Desde una posición colgada, tira de tu cuerpo hacia arriba hasta que tu barbilla supere la barra. Baja controladamente.",
+    "series": 4,
+    "repeticiones": "6-10",
+    "video": "https://www.youtube.com/watch?v=eGo4IYlbE5g"
+  },
+  {
+    "id": 7,
+    "nombre": "Remo con Barra",
+    "parteCuerpoId": 2,
+    "descripcion": "Inclínate hacia adelante con la espalda recta y sujeta una barra con los brazos extendidos. Tira de la barra hacia tu abdomen y luego bájala controladamente.",
+    "series": 4,
+    "repeticiones": "8-12",
+    "video": "https://www.youtube.com/watch?v=G8l_8chR5BE"
+  },
+  {
+    "id": 8,
+    "nombre": "Remo con Mancuerna a Una Mano",
+    "parteCuerpoId": 2,
+    "descripcion": "Coloca una rodilla y una mano en un banco, con la otra mano sujetando una mancuerna. Tira de la mancuerna hacia tu costado y luego bájala controladamente.",
+    "series": 3,
+    "repeticiones": "10-12 por lado",
+    "video": "https://www.youtube.com/watch?v=pYcpY20QaE8"
+  },
+  {
+    "id": 9,
+    "nombre": "Pulldown en Polea",
+    "parteCuerpoId": 2,
+    "descripcion": "Siéntate en la máquina de polea alta y agarra la barra con las manos separadas. Tira de la barra hacia abajo hasta la altura del pecho y luego controla el movimiento al subir.",
+    "series": 4,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=CAwf7n6Luuc"
+  },
+  {
+    "id": 10,
+    "nombre": "Hiperextensiones",
+    "parteCuerpoId": 2,
+    "descripcion": "Colócate en el banco de hiperextensiones con las caderas apoyadas y los pies asegurados. Baja el torso y luego elévalo hasta que tu cuerpo forme una línea recta.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=ph3pddpKzzw"
+  },
+  {
+    "id": 11,
+    "nombre": "Press Militar",
+    "parteCuerpoId": 3,
+    "descripcion": "De pie o sentado, sostén una barra o mancuernas a la altura de los hombros. Empuja el peso hacia arriba extendiendo los brazos y luego bájalo controladamente.",
+    "series": 4,
+    "repeticiones": "8-10",
+    "video": "https://www.youtube.com/watch?v=QAQ64hK4Xxs"
+  },
+  {
+    "id": 12,
+    "nombre": "Elevaciones Laterales",
+    "parteCuerpoId": 3,
+    "descripcion": "De pie, sostén una mancuerna en cada mano a los lados del cuerpo. Eleva los brazos hasta que estén paralelos al suelo y luego bájalos controladamente.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=3VcKaXpzqRo"
+  },
+  {
+    "id": 13,
+    "nombre": "Pájaros",
+    "parteCuerpoId": 3,
+    "descripcion": "Inclínate hacia adelante con la espalda recta y sostén mancuernas con los brazos colgando. Eleva los brazos a los lados como si fueran alas hasta que estén paralelos al suelo.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=ttvfGg9d76c"
+  },
+  {
+    "id": 14,
+    "nombre": "Encogimientos de Hombros",
+    "parteCuerpoId": 3,
+    "descripcion": "De pie, sostén mancuernas o una barra en tus manos. Eleva los hombros hacia las orejas sin doblar los codos y luego bájalos controladamente.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=g6qbq4Lf1FI"
+  },
+  {
+    "id": 15,
+    "nombre": "Press Arnold",
+    "parteCuerpoId": 3,
+    "descripcion": "Sentado o de pie, sostén mancuernas frente a ti con las palmas hacia ti. Mientras las elevas, gira las muñecas para que las palmas queden hacia adelante en la posición final.",
+    "series": 3,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=6Z15_WdXmVw"
+  },
+  {
+    "id": 16,
+    "nombre": "Extensiones de Tríceps con Polea",
+    "parteCuerpoId": 4,
+    "descripcion": "De pie frente a una polea alta, agarra la cuerda con ambas manos. Mantén los codos cerca del cuerpo y extiende los brazos hacia abajo, luego regresa controladamente.",
+    "series": 4,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=2-LAMcpzODU"
+  },
+  {
+    "id": 17,
+    "nombre": "Press Francés",
+    "parteCuerpoId": 4,
+    "descripcion": "Acostado en un banco, sostén una barra o mancuerna con ambas manos sobre tu frente. Baja el peso doblando los codos hasta que quede cerca de tu cabeza y luego extiende los brazos.",
+    "series": 3,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=d_KZxkY_0cM"
+  },
+  {
+    "id": 18,
+    "nombre": "Fondos de Tríceps en Banco",
+    "parteCuerpoId": 4,
+    "descripcion": "Colócate de espaldas a un banco, apoya las manos en el borde y extiende las piernas. Dobla los codos para bajar el cuerpo y luego empuja para subir.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=6kALZikXxLc"
+  },
+  {
+    "id": 19,
+    "nombre": "Patada de Tríceps",
+    "parteCuerpoId": 4,
+    "descripcion": "Inclínate hacia adelante con una rodilla y una mano en un banco. Con la otra mano, sostén una mancuerna con el brazo doblado a 90 grados. Extiende el brazo hacia atrás y luego regresa.",
+    "series": 3,
+    "repeticiones": "12-15 por lado",
+    "video": "https://www.youtube.com/watch?v=6SS6K3lAwZ8"
+  },
+  {
+    "id": 20,
+    "nombre": "Extensiones de Tríceps Over Head",
+    "parteCuerpoId": 4,
+    "descripcion": "De pie o sentado, sostén una mancuerna con ambas manos sobre tu cabeza. Baja la mancuerna detrás de tu cabeza doblando los codos y luego extiende los brazos.",
+    "series": 3,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=YbX7Wd8jQ-Q"
+  },
+  {
+    "id": 21,
+    "nombre": "Curl de Bíceps con Barra",
+    "parteCuerpoId": 5,
+    "descripcion": "De pie, sostén una barra con las palmas hacia arriba. Flexiona los codos para llevar la barra hacia tus hombros y luego bájala controladamente.",
+    "series": 4,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=kwG2ipFRgfo"
+  },
+  {
+    "id": 22,
+    "nombre": "Curl Martillo",
+    "parteCuerpoId": 5,
+    "descripcion": "De pie, sostén mancuernas a los lados con las palmas mirando hacia tu cuerpo. Flexiona los codos manteniendo las palmas en esa posición y luego baja controladamente.",
+    "series": 3,
+    "repeticiones": "10-12 por brazo",
+    "video": "https://www.youtube.com/watch?v=zC3nLlEvin4"
+  },
+  {
+    "id": 23,
+    "nombre": "Curl de Concentración",
+    "parteCuerpoId": 5,
+    "descripcion": "Sentado en un banco, coloca el codo en el interior de tu muslo. Sostén una mancuerna y flexiona el codo para elevar el peso y luego bájalo controladamente.",
+    "series": 3,
+    "repeticiones": "10-12 por brazo",
+    "video": "https://www.youtube.com/watch?v=Jvj2wV0vOYU"
+  },
+  {
+    "id": 24,
+    "nombre": "Curl con Cable",
+    "parteCuerpoId": 5,
+    "descripcion": "De pie frente a una polea baja, agarra la barra con las palmas hacia arriba. Flexiona los codos para elevar la barra hacia tus hombros y luego bájala controladamente.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=AsAVbj7puKo"
+  },
+  {
+    "id": 25,
+    "nombre": "Curl 21s",
+    "parteCuerpoId": 5,
+    "descripcion": "Con una barra, realiza 7 repeticiones en la mitad inferior del movimiento, 7 en la mitad superior y 7 repeticiones completas. Esto cuenta como una serie.",
+    "series": 3,
+    "repeticiones": "21 (7+7+7)",
+    "video": "https://www.youtube.com/watch?v=YjX8bL5C4tE"
+  },
+  {
+    "id": 26,
+    "nombre": "Hip Thrust",
+    "parteCuerpoId": 6,
+    "descripcion": "Siéntate en el suelo con la espalda apoyada en un banco y coloca una barra sobre tus caderas. Empuja con los glúteos para elevar las caderas hasta que tu cuerpo forme una línea recta desde los hombros hasta las rodillas.",
+    "series": 4,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=Zp26q4BY5HE"
+  },
+  {
+    "id": 27,
+    "nombre": "Sentadillas",
+    "parteCuerpoId": 6,
+    "descripcion": "Con los pies a la anchura de los hombros, flexiona rodillas y caderas como si fueras a sentarte, manteniendo la espalda recta. Baja hasta que los muslos estén paralelos al suelo y luego sube.",
+    "series": 4,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=aclHkVaku9U"
+  },
+  {
+    "id": 28,
+    "nombre": "Puente de Glúteos",
+    "parteCuerpoId": 6,
+    "descripcion": "Acuéstate boca arriba con las rodillas flexionadas y los pies apoyados en el suelo. Eleva las caderas apretando los glúteos hasta que tu cuerpo forme una línea recta desde los hombros hasta las rodillas.",
+    "series": 3,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=wPM8icPu6H8"
+  },
+  {
+    "id": 29,
+    "nombre": "Patada de Glúteos en Cuadrupedia",
+    "parteCuerpoId": 6,
+    "descripcion": "En posición de cuadrupedia, lleva una pierna hacia atrás y hacia arriba, manteniendo la rodilla doblada a 90 grados. Contrae el glúteo en la posición más alta y luego baja controladamente.",
+    "series": 3,
+    "repeticiones": "15-20 por lado",
+    "video": "https://www.youtube.com/watch?v=SJ1Xuz9D-ZQ"
+  },
+  {
+    "id": 30,
+    "nombre": "Peso Muerto Rumano",
+    "parteCuerpoId": 6,
+    "descripcion": "De pie, sostén una barra o mancuernas frente a ti. Con las rodillas ligeramente flexionadas, inclina el torso hacia adelante manteniendo la espalda recta hasta sentir estiramiento en los isquiotibiales.",
+    "series": 3,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=2SHsk9AzdjA"
+  },
+  {
+    "id": 31,
+    "nombre": "Crunch Abdominal",
+    "parteCuerpoId": 7,
+    "descripcion": "Acuéstate boca arriba con las rodillas flexionadas y los pies apoyados en el suelo. Coloca las manos detrás de la cabeza y eleva los hombros del suelo, contrayendo los abdominales.",
+    "series": 3,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=Xyd_fa5zoEU"
+  },
+  {
+    "id": 32,
+    "nombre": "Plancha",
+    "parteCuerpoId": 7,
+    "descripcion": "Apóyate en los antebrazos y las puntas de los pies, manteniendo el cuerpo recto como una tabla. Mantén la posición contrayendo el abdomen.",
+    "series": 3,
+    "repeticiones": "30-60 segundos",
+    "video": "https://www.youtube.com/watch?v=ASdvN_XEl_c"
+  },
+  {
+    "id": 33,
+    "nombre": "Elevación de Piernas",
+    "parteCuerpoId": 7,
+    "descripcion": "Acuéstate boca arriba con las manos bajo los glúteos. Manteniendo las piernas rectas, elévelas hasta formar un ángulo de 90 grados con el suelo y luego bájalas controladamente sin tocar el suelo.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=JB2oyawG9KI"
+  },
+  {
+    "id": 34,
+    "nombre": "Russian Twist",
+    "parteCuerpoId": 7,
+    "descripcion": "Siéntate en el suelo con las rodillas flexionadas y los pies ligeramente elevados. Inclina el torso hacia atrás y gira de un lado a otro, tocando el suelo a cada lado.",
+    "series": 3,
+    "repeticiones": "20 (10 por lado)",
+    "video": "https://www.youtube.com/watch?v=wkD8rjkodUI"
+  },
+  {
+    "id": 35,
+    "nombre": "Mountain Climbers",
+    "parteCuerpoId": 7,
+    "descripcion": "En posición de plancha con brazos extendidos, lleva alternadamente las rodillas hacia el pecho en un movimiento rápido, como si estuvieras escalando.",
+    "series": 3,
+    "repeticiones": "30 segundos",
+    "video": "https://www.youtube.com/watch?v=nmwgirgXLYM"
+  },
+  {
+    "id": 36,
+    "nombre": "Sentadilla",
+    "parteCuerpoId": 8,
+    "descripcion": "Con los pies a la anchura de los hombros, flexiona rodillas y caderas como si fueras a sentarte, manteniendo la espalda recta. Baja hasta que los muslos estén paralelos al suelo y luego sube.",
+    "series": 4,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=aclHkVaku9U"
+  },
+  {
+    "id": 37,
+    "nombre": "Prensa de Piernas",
+    "parteCuerpoId": 8,
+    "descripcion": "Siéntate en la máquina de prensa con los pies en la plataforma. Empuja con las piernas para extenderlas completamente y luego flexiónalas controladamente.",
+    "series": 4,
+    "repeticiones": "10-12",
+    "video": "https://www.youtube.com/watch?v=IZxyjW7MPJQ"
+  },
+  {
+    "id": 38,
+    "nombre": "Extensión de Piernas",
+    "parteCuerpoId": 8,
+    "descripcion": "Siéntate en la máquina de extensión de piernas con los pies bajo el rodillo. Extiende las rodillas levantando el peso y luego bájalo controladamente.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=YyvSfVjQeL0"
+  },
+  {
+    "id": 39,
+    "nombre": "Curl Femoral",
+    "parteCuerpoId": 8,
+    "descripcion": "Acuéstate boca abajo en la máquina de curl femoral con los talones bajo el rodillo. Dobla las rodillas para elevar el peso y luego bájalo controladamente.",
+    "series": 3,
+    "repeticiones": "12-15",
+    "video": "https://www.youtube.com/watch?v=1Tq3QdYUuHs"
+  },
+  {
+    "id": 40,
+    "nombre": "Zancadas",
+    "parteCuerpoId": 8,
+    "descripcion": "De pie, da un paso hacia adelante y baja la cadera flexionando ambas rodillas hasta formar ángulos de 90 grados. Empuja con el pie delantero para volver a la posición inicial.",
+    "series": 3,
+    "repeticiones": "10-12 por pierna",
+    "video": "https://www.youtube.com/watch?v=QOVaHwm-Q6U"
+  },
+  {
+    "id": 41,
+    "nombre": "Curl de Antebrazo con Barra",
+    "parteCuerpoId": 9,
+    "descripcion": "Siéntate con los antebrazos apoyados en tus muslos o en un banco, sosteniendo una barra con las palmas hacia arriba. Flexiona las muñecas para elevar la barra y luego bájalas controladamente.",
+    "series": 3,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=qu-EkDhQkM0"
+  },
+  {
+    "id": 42,
+    "nombre": "Curl de Antebrazo con Barra Invertido",
+    "parteCuerpoId": 9,
+    "descripcion": "Similar al ejercicio anterior, pero con las palmas hacia abajo. Flexiona las muñecas para elevar la barra y luego bájalas controladamente.",
+    "series": 3,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=qQgJu3jRWZM"
+  },
+  {
+    "id": 43,
+    "nombre": "Rotación de Muñeca con Martillo",
+    "parteCuerpoId": 9,
+    "descripcion": "Sostén un martillo o una mancuerna ligera por el extremo con el brazo extendido. Gira la muñeca de un lado a otro controladamente.",
+    "series": 3,
+    "repeticiones": "20 (10 por lado)",
+    "video": "https://www.youtube.com/watch?v=dYyH8iU7jpM"
+  },
+  {
+    "id": 44,
+    "nombre": "Agarre de Placas",
+    "parteCuerpoId": 9,
+    "descripcion": "Sostén una placa de peso con las puntas de los dedos y el pulgar. Mantén la placa en esa posición durante el tiempo indicado.",
+    "series": 3,
+    "repeticiones": "30-60 segundos",
+    "video": "https://www.youtube.com/watch?v=NYP91wBTdX0"
+  },
+  {
+    "id": 45,
+    "nombre": "Agarre con Pelota de Tenis",
+    "parteCuerpoId": 9,
+    "descripcion": "Sostén una pelota de tenis o una pelota de agarre en la mano y apriétala con fuerza, mantén la presión durante unos segundos y luego relaja.",
+    "series": 3,
+    "repeticiones": "15-20 por mano",
+    "video": "https://www.youtube.com/watch?v=GJSwtWRa9xo"
+  },
+  {
+    "id": 46,
+    "nombre": "Elevación de Talones de Pie",
+    "parteCuerpoId": 10,
+    "descripcion": "De pie con los pies a la anchura de los hombros, elévate sobre las puntas de los pies tanto como puedas y luego baja controladamente.",
+    "series": 4,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=wxwY7GXxL4k"
+  },
+  {
+    "id": 47,
+    "nombre": "Elevación de Talones Sentado",
+    "parteCuerpoId": 10,
+    "descripcion": "Siéntate en un banco con las puntas de los pies en una plataforma elevada y peso sobre tus rodillas. Eleva los talones tanto como puedas y luego bájalos controladamente.",
+    "series": 3,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=JbyjNymZOt0"
+  },
+  {
+    "id": 48,
+    "nombre": "Elevación de Talones a Una Pierna",
+    "parteCuerpoId": 10,
+    "descripcion": "De pie sobre un pie en una plataforma elevada, eleva el talón tanto como puedas y luego bájalo controladamente. Puedes sujetarte para mantener el equilibrio.",
+    "series": 3,
+    "repeticiones": "12-15 por pierna",
+    "video": "https://www.youtube.com/watch?v=aM8ntpR1T6E"
+  },
+  {
+    "id": 49,
+    "nombre": "Prensa de Pantorrillas",
+    "parteCuerpoId": 10,
+    "descripcion": "En la máquina de prensa, coloca los pies en el borde inferior de la plataforma. Empuja con las puntas de los pies para extender los tobillos y luego flexiónalos controladamente.",
+    "series": 3,
+    "repeticiones": "15-20",
+    "video": "https://www.youtube.com/watch?v=cCrAKe-yqVo"
+  },
+  {
+    "id": 50,
+    "nombre": "Saltos de Pantorrilla",
+    "parteCuerpoId": 10,
+    "descripcion": "De pie con los pies a la anchura de los hombros, realiza pequeños saltos utilizando principalmente las pantorrillas, manteniendo las rodillas ligeramente flexionadas.",
+    "series": 3,
+    "repeticiones": "20-30",
+    "video": "https://www.youtube.com/watch?v=7_apeEXqW0g"
+  }
+]

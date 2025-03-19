@@ -1,0 +1,733 @@
+[
+  {
+    "id": 1,
+    "nombre": "Batido de Proteínas y Frutas",
+    "categoriaId": 1,
+    "tiempo": 5,
+    "dificultad": "Fácil",
+    "porciones": 1,
+    "ingredientes": [
+      "1 scoop de proteína en polvo sabor vainilla",
+      "1 plátano maduro",
+      "1/2 taza de fresas",
+      "1 cucharada de mantequilla de almendras",
+      "1 taza de leche descremada o bebida vegetal",
+      "Hielo al gusto"
+    ],
+    "preparacion": [
+      "Añade todos los ingredientes en una licuadora.",
+      "Licúa hasta obtener una mezcla homogénea.",
+      "Sirve inmediatamente y disfruta."
+    ],
+    "nutricion": {
+      "calorias": "350 kcal",
+      "proteinas": "30g",
+      "carbohidratos": "40g",
+      "grasas": "8g"
+    },
+    "tags": ["proteína", "rápido", "sin cocción"],
+    "consejos": "Puedes añadir espinacas para aumentar los nutrientes sin afectar mucho el sabor. Para más calorías, agrega avena.",
+    "video": "https://www.youtube.com/watch?v=qLJtZoG9FHM"
+  },
+  {
+    "id": 2,
+    "nombre": "Tostadas de Aguacate con Huevo",
+    "categoriaId": 1,
+    "tiempo": 10,
+    "dificultad": "Fácil",
+    "porciones": 2,
+    "ingredientes": [
+      "2 rebanadas de pan integral",
+      "1 aguacate maduro",
+      "2 huevos",
+      "Sal y pimienta al gusto",
+      "Chile en hojuelas (opcional)",
+      "Jugo de limón"
+    ],
+    "preparacion": [
+      "Tuesta el pan hasta que esté dorado.",
+      "Machaca el aguacate en un recipiente y añade sal, pimienta y unas gotas de limón.",
+      "Unta el aguacate sobre las tostadas.",
+      "En una sartén, prepara los huevos al gusto (estrellados o revueltos).",
+      "Coloca los huevos sobre las tostadas con aguacate.",
+      "Espolvorea chile en hojuelas si deseas un toque picante."
+    ],
+    "nutricion": {
+      "calorias": "380 kcal",
+      "proteinas": "15g",
+      "carbohidratos": "25g",
+      "grasas": "25g"
+    },
+    "tags": ["sin lácteos", "alto en grasas saludables"],
+    "consejos": "Para una versión más ligera, puedes usar claras de huevo. El aguacate debe estar maduro pero firme para mejor sabor.",
+    "video": "https://www.youtube.com/watch?v=86XOw2Q6UZc"
+  },
+  {
+    "id": 3,
+    "nombre": "Bowl de Avena con Frutas",
+    "categoriaId": 1,
+    "tiempo": 10,
+    "dificultad": "Fácil",
+    "porciones": 1,
+    "ingredientes": [
+      "1/2 taza de avena",
+      "1 taza de leche o bebida vegetal",
+      "1 cucharada de miel o sirope de arce",
+      "1/2 manzana picada",
+      "1/4 taza de arándanos",
+      "1 cucharada de semillas de chía",
+      "Canela al gusto"
+    ],
+    "preparacion": [
+      "En una olla pequeña, combina la avena y la leche.",
+      "Cocina a fuego medio, revolviendo ocasionalmente, hasta que la avena esté suave (5-7 minutos).",
+      "Vierte la avena en un bowl y añade la miel.",
+      "Agrega las frutas picadas, las semillas de chía y espolvorea canela por encima."
+    ],
+    "nutricion": {
+      "calorias": "320 kcal",
+      "proteinas": "12g",
+      "carbohidratos": "55g",
+      "grasas": "7g"
+    },
+    "tags": ["fibra", "energético", "bajo en grasas"],
+    "consejos": "Puedes preparar la avena la noche anterior y dejarla en el refrigerador. También puedes variar las frutas según la temporada.",
+    "video": "https://www.youtube.com/watch?v=ksX4AlL3-QA"
+  },
+  {
+    "id": 4,
+    "nombre": "Omelette de Claras con Espinacas",
+    "categoriaId": 1,
+    "tiempo": 15,
+    "dificultad": "Media",
+    "porciones": 1,
+    "ingredientes": [
+      "4 claras de huevo",
+      "1 taza de espinacas frescas",
+      "1/4 de cebolla picada",
+      "30g de queso bajo en grasa rallado",
+      "Sal y pimienta al gusto",
+      "1 cucharadita de aceite de oliva"
+    ],
+    "preparacion": [
+      "Calienta el aceite en una sartén antiadherente a fuego medio.",
+      "Saltea la cebolla hasta que esté transparente.",
+      "Añade las espinacas y cocina hasta que se marchiten.",
+      "Bate las claras de huevo con sal y pimienta.",
+      "Vierte las claras sobre las verduras en la sartén.",
+      "Cuando la base esté firme, espolvorea el queso y dobla el omelette por la mitad.",
+      "Cocina por un minuto más y sirve caliente."
+    ],
+    "nutricion": {
+      "calorias": "200 kcal",
+      "proteinas": "28g",
+      "carbohidratos": "4g",
+      "grasas": "8g"
+    },
+    "tags": ["alto en proteínas", "bajo en carbohidratos"],
+    "consejos": "Puedes añadir otras verduras como champiñones o pimientos. Para más sabor, agrega un poco de pavo o jamón bajo en grasa.",
+    "video": "https://www.youtube.com/watch?v=qZn-2TH0YQE"
+  },
+  {
+    "id": 5,
+    "nombre": "Yogur Griego con Granola",
+    "categoriaId": 1,
+    "tiempo": 5,
+    "dificultad": "Fácil",
+    "porciones": 1,
+    "ingredientes": [
+      "1 taza de yogur griego natural",
+      "1/4 taza de granola baja en azúcar",
+      "1 cucharada de miel",
+      "1/2 taza de frutas mixtas (fresas, arándanos, plátano)",
+      "1 cucharada de semillas de calabaza"
+    ],
+    "preparacion": [
+      "Coloca el yogur griego en un bowl.",
+      "Añade la granola por encima.",
+      "Agrega las frutas picadas.",
+      "Espolvorea las semillas de calabaza.",
+      "Termina con un chorrito de miel por encima."
+    ],
+    "nutricion": {
+      "calorias": "330 kcal",
+      "proteinas": "22g",
+      "carbohidratos": "45g",
+      "grasas": "10g"
+    },
+    "tags": ["probiótico", "rápido", "sin cocción"],
+    "consejos": "Elige yogur griego sin azúcar añadido para reducir calorías. La granola casera es más saludable que las opciones comerciales.",
+    "video": "https://www.youtube.com/watch?v=HKdJF3MpHGc"
+  },
+  {
+    "id": 6,
+    "nombre": "Bowl de Quinoa con Pollo y Verduras",
+    "categoriaId": 2,
+    "tiempo": 25,
+    "dificultad": "Media",
+    "porciones": 2,
+    "ingredientes": [
+      "1 taza de quinoa",
+      "2 tazas de caldo de pollo bajo en sodio",
+      "200g de pechuga de pollo",
+      "1 calabacín mediano",
+      "1 pimiento rojo",
+      "1 zanahoria",
+      "2 cucharadas de aceite de oliva",
+      "1 diente de ajo picado",
+      "Sal y pimienta al gusto",
+      "Zumo de medio limón"
+    ],
+    "preparacion": [
+      "Lava la quinoa bajo agua fría y escurre bien.",
+      "En una olla, cocina la quinoa con el caldo de pollo a fuego medio hasta que esté tierna (unos 15 minutos).",
+      "Corta el pollo en cubos y sazona con sal y pimienta.",
+      "Corta las verduras en cubos pequeños o tiras.",
+      "En una sartén grande, calienta el aceite y añade el ajo por unos segundos.",
+      "Añade el pollo y cocina hasta que esté dorado.",
+      "Agrega las verduras y saltea todo junto por unos 5-7 minutos hasta que estén tiernas pero crujientes.",
+      "Combina la quinoa con la mezcla de pollo y verduras.",
+      "Rocía con zumo de limón antes de servir."
+    ],
+    "nutricion": {
+      "calorias": "450 kcal",
+      "proteinas": "35g",
+      "carbohidratos": "45g",
+      "grasas": "15g"
+    },
+    "tags": ["alto en proteínas", "completo", "sin gluten"],
+    "consejos": "Puedes preparar más cantidad y guardarlo en tuppers para tener comida lista durante varios días. La quinoa se puede sustituir por arroz integral.",
+    "video": "https://www.youtube.com/watch?v=P_wD_8-Rd5E"
+  },
+  {
+    "id": 7,
+    "nombre": "Ensalada de Atún con Garbanzos",
+    "categoriaId": 2,
+    "tiempo": 15,
+    "dificultad": "Fácil",
+    "porciones": 2,
+    "ingredientes": [
+      "2 latas de atún al natural",
+      "1 taza de garbanzos cocidos",
+      "1 tomate grande picado",
+      "1/2 cebolla roja picada",
+      "1/2 pimiento verde picado",
+      "1 taza de lechuga picada",
+      "2 cucharadas de aceite de oliva",
+      "1 cucharada de vinagre de manzana",
+      "Sal y pimienta al gusto",
+      "Zumo de medio limón"
+    ],
+    "preparacion": [
+      "Escurre bien el atún y desmenuza en un bowl grande.",
+      "Añade los garbanzos, tomate, cebolla y pimiento.",
+      "Agrega la lechuga picada.",
+      "En un recipiente aparte, mezcla el aceite, vinagre, sal, pimienta y zumo de limón para hacer el aderezo.",
+      "Vierte el aderezo sobre la ensalada y mezcla bien.",
+      "Refrigera por 15 minutos antes de servir para que los sabores se integren."
+    ],
+    "nutricion": {
+      "calorias": "380 kcal",
+      "proteinas": "40g",
+      "carbohidratos": "25g",
+      "grasas": "15g"
+    },
+    "tags": ["alto en proteínas", "sin cocción", "omega-3"],
+    "consejos": "Usa atún en agua para reducir calorías. Puedes añadir aceitunas para más sabor y grasas saludables.",
+    "video": "https://www.youtube.com/watch?v=NbppR9EGR4Y"
+  },
+  {
+    "id": 8,
+    "nombre": "Wrap de Pavo con Hummus",
+    "categoriaId": 2,
+    "tiempo": 10,
+    "dificultad": "Fácil",
+    "porciones": 1,
+    "ingredientes": [
+      "1 tortilla integral grande",
+      "3 cucharadas de hummus",
+      "100g de pechuga de pavo en lonchas",
+      "1/4 de pepino en tiras",
+      "1/4 de pimiento rojo en tiras",
+      "Puñado de hojas de espinaca",
+      "1 cucharadita de semillas de sésamo"
+    ],
+    "preparacion": [
+      "Extiende el hummus sobre la tortilla, dejando un borde de 2cm sin cubrir.",
+      "Coloca las lonchas de pavo en el centro.",
+      "Añade las tiras de pepino, pimiento y las hojas de espinaca.",
+      "Espolvorea las semillas de sésamo.",
+      "Dobla los extremos de la tortilla hacia dentro y enrolla firmemente.",
+      "Corta el wrap por la mitad antes de servir."
+    ],
+    "nutricion": {
+      "calorias": "320 kcal",
+      "proteinas": "25g",
+      "carbohidratos": "30g",
+      "grasas": "12g"
+    },
+    "tags": ["para llevar", "sin cocción", "bajo en grasas"],
+    "consejos": "Puedes agregar un poco de mostaza o aguacate para más sabor. Envuélvelo en papel aluminio si lo llevas para comer fuera de casa.",
+    "video": "https://www.youtube.com/watch?v=klq-vR5hhDY"
+  },
+  {
+    "id": 9,
+    "nombre": "Pasta Integral con Pollo y Brócoli",
+    "categoriaId": 2,
+    "tiempo": 30,
+    "dificultad": "Media",
+    "porciones": 2,
+    "ingredientes": [
+      "150g de pasta integral",
+      "200g de pechuga de pollo",
+      "2 tazas de brócoli en floretes pequeños",
+      "1 diente de ajo picado",
+      "2 cucharadas de aceite de oliva",
+      "1/4 taza de queso parmesano rallado",
+      "1/2 limón (jugo)",
+      "Sal y pimienta al gusto",
+      "Chile en hojuelas (opcional)"
+    ],
+    "preparacion": [
+      "Cocina la pasta según las instrucciones del paquete. Añade el brócoli durante los últimos 3 minutos de cocción.",
+      "Corta el pollo en tiras y sazona con sal y pimienta.",
+      "En una sartén grande, calienta el aceite y añade el ajo, cocinando por 30 segundos.",
+      "Agrega el pollo y cocina hasta que esté completamente dorado.",
+      "Escurre la pasta y el brócoli, reservando 1/4 taza del agua de cocción.",
+      "Añade la pasta y el brócoli a la sartén con el pollo.",
+      "Agrega el agua reservada, el jugo de limón y mezcla bien.",
+      "Espolvorea el queso parmesano y mezcla hasta que se derrita ligeramente.",
+      "Sirve caliente con un poco más de queso y chile en hojuelas si deseas."
+    ],
+    "nutricion": {
+      "calorias": "490 kcal",
+      "proteinas": "40g",
+      "carbohidratos": "50g",
+      "grasas": "16g"
+    },
+    "tags": ["proteína completa", "fibra", "bajo en grasas"],
+    "consejos": "Para una versión más ligera, puedes usar solo claras de pollo. El brócoli se puede sustituir por espinacas o espárragos.",
+    "video": "https://www.youtube.com/watch?v=uu9OGLdvCNs"
+  },
+  {
+    "id": 10,
+    "nombre": "Tofu Salteado con Verduras",
+    "categoriaId": 2,
+    "tiempo": 20,
+    "dificultad": "Media",
+    "porciones": 2,
+    "ingredientes": [
+      "250g de tofu firme",
+      "2 tazas de verduras mixtas (brócoli, zanahoria, pimiento)",
+      "1 cebolla pequeña picada",
+      "2 dientes de ajo picados",
+      "1 cucharada de jengibre fresco rallado",
+      "2 cucharadas de salsa de soja baja en sodio",
+      "1 cucharada de aceite de sésamo",
+      "1 cucharadita de miel",
+      "1/2 taza de arroz integral cocido",
+      "Semillas de sésamo para decorar"
+    ],
+    "preparacion": [
+      "Corta el tofu en cubos de 2cm y sécalo con papel absorbente.",
+      "Corta todas las verduras en trozos pequeños y uniformes.",
+      "En un wok o sartén grande, calienta el aceite de sésamo a fuego medio-alto.",
+      "Añade el tofu y dóralo por todos lados (3-4 minutos).",
+      "Agrega la cebolla, el ajo y el jengibre, y cocina por 1 minuto.",
+      "Incorpora las verduras y saltea todo por 4-5 minutos hasta que estén tiernas pero crujientes.",
+      "En un recipiente pequeño, mezcla la salsa de soja con la miel y añade a la sartén.",
+      "Cocina todo junto por 2 minutos más para que los sabores se integren.",
+      "Sirve sobre arroz integral y espolvorea con semillas de sésamo."
+    ],
+    "nutricion": {
+      "calorias": "350 kcal",
+      "proteinas": "20g",
+      "carbohidratos": "35g",
+      "grasas": "15g"
+    },
+    "tags": ["vegetariano", "vegano", "sin lácteos"],
+    "consejos": "Para un tofu más sabroso, puedes marinarlo en salsa de soja por 30 minutos antes de cocinarlo. Añade piña para un toque dulce.",
+    "video": "https://www.youtube.com/watch?v=TVMvUsL2WQc"
+  },
+  {
+    "id": 11,
+    "nombre": "Pechuga de Pollo al Horno con Batata",
+    "categoriaId": 3,
+    "tiempo": 40,
+    "dificultad": "Media",
+    "porciones": 2,
+    "ingredientes": [
+      "2 pechugas de pollo (150g cada una)",
+      "1 batata grande cortada en cubos",
+      "1 cebolla roja en gajos",
+      "1 calabacín en rodajas gruesas",
+      "2 cucharadas de aceite de oliva",
+      "1 cucharadita de romero seco",
+      "1 cucharadita de tomillo seco",
+      "2 dientes de ajo picados",
+      "Sal y pimienta al gusto",
+      "Zumo de medio limón"
+    ],
+    "preparacion": [
+      "Precalienta el horno a 200°C.",
+      "En una bandeja para hornear, coloca los cubos de batata y la cebolla. Rocía con 1 cucharada de aceite, añade sal, pimienta y mezcla bien.",
+      "Hornea por 15 minutos.",
+      "Mientras tanto, sazona las pechugas de pollo con sal, pimienta, romero, tomillo y ajo.",
+      "Retira la bandeja del horno, añade el calabacín y coloca las pechugas de pollo encima de las verduras.",
+      "Rocía con el aceite restante y el zumo de limón.",
+      "Regresa al horno por 20-25 minutos más, o hasta que el pollo esté completamente cocido.",
+      "Deja reposar por 5 minutos antes de servir."
+    ],
+    "nutricion": {
+      "calorias": "420 kcal",
+      "proteinas": "40g",
+      "carbohidratos": "30g",
+      "grasas": "16g"
+    },
+    "tags": ["al horno", "bajo en grasas", "sin gluten"],
+    "consejos": "Puedes marinar el pollo la noche anterior para más sabor. La batata se puede sustituir por calabaza o zanahoria.",
+    "video": "https://www.youtube.com/watch?v=iqIVxEOXFLs"
+  },
+  {
+    "id": 12,
+    "nombre": "Salmón a la Plancha con Espárragos",
+    "categoriaId": 3,
+    "tiempo": 25,
+    "dificultad": "Media",
+    "porciones": 2,
+    "ingredientes": [
+      "2 filetes de salmón (150g cada uno)",
+      "1 manojo de espárragos",
+      "1 limón",
+      "2 cucharadas de aceite de oliva",
+      "1 diente de ajo picado",
+      "1 cucharadita de eneldo fresco picado",
+      "Sal y pimienta al gusto",
+      "1/2 taza de quinoa cocida (opcional)"
+    ],
+    "preparacion": [
+      "Lava y recorta los extremos duros de los espárragos.",
+      "Sazona los filetes de salmón con sal, pimienta y eneldo por ambos lados.",
+      "Calienta una cucharada de aceite en una sartén grande a fuego medio-alto.",
+      "Coloca los filetes de salmón con la piel hacia abajo y cocina por 4-5 minutos.",
+      "Gira los filetes y cocina por 2-3 minutos más hasta que estén en el punto deseado.",
+      "Retira el salmón y mantenlo caliente.",
+      "En la misma sartén, añade el aceite restante y el ajo, cocinando por 30 segundos.",
+      "Agrega los espárragos y cocina por 3-4 minutos hasta que estén tiernos pero crujientes.",
+      "Exprime medio limón sobre los espárragos y mezcla bien.",
+      "Sirve el salmón con los espárragos y quinoa si deseas, decorando con rodajas de limón."
+    ],
+    "nutricion": {
+      "calorias": "380 kcal",
+      "proteinas": "35g",
+      "carbohidratos": "10g",
+      "grasas": "22g"
+    },
+    "tags": ["omega-3", "bajo en carbohidratos", "antiinflamatorio"],
+    "consejos": "No sobrecuezas el salmón, debe quedar jugoso en el centro. Los espárragos pueden sustituirse por judías verdes.",
+    "video": "https://www.youtube.com/watch?v=SQuyOwNhPwI"
+  },
+  {
+    "id": 13,
+    "nombre": "Chili de Pavo con Frijoles",
+    "categoriaId": 3,
+    "tiempo": 35,
+    "dificultad": "Media",
+    "porciones": 4,
+    "ingredientes": [
+      "500g de pavo molido",
+      "1 lata de frijoles negros escurridos",
+      "1 lata de tomates troceados",
+      "1 cebolla picada",
+      "1 pimiento rojo picado",
+      "2 dientes de ajo picados",
+      "1 cucharada de comino molido",
+      "1 cucharadita de pimentón ahumado",
+      "1/2 cucharadita de chile en polvo (ajustar según preferencia)",
+      "1 taza de caldo de verduras bajo en sodio",
+      "2 cucharadas de aceite de oliva",
+      "Cilantro fresco picado para decorar",
+      "1 aguacate en cubos (opcional)"
+    ],
+    "preparacion": [
+      "Calienta el aceite en una olla grande a fuego medio.",
+      "Añade la cebolla y el pimiento, y cocina hasta que estén suaves (5 minutos).",
+      "Agrega el ajo y cocina por 1 minuto más.",
+      "Incorpora el pavo molido y cocina hasta que esté completamente dorado, rompiendo los grumos con una cuchara.",
+      "Añade el comino, pimentón y chile en polvo, y cocina por 1 minuto para activar los sabores.",
+      "Agrega los tomates troceados, los frijoles y el caldo.",
+      "Lleva a ebullición, luego reduce el fuego y cocina a fuego lento por 20-25 minutos, revolviendo ocasionalmente.",
+      "Prueba y ajusta la sazón si es necesario.",
+      "Sirve caliente, decorado con cilantro fresco y aguacate si deseas."
+    ],
+    "nutricion": {
+      "calorias": "380 kcal",
+      "proteinas": "35g",
+      "carbohidratos": "25g",
+      "grasas": "18g"
+    },
+    "tags": ["alto en proteínas", "bajo en grasas", "fibra"],
+    "consejos": "Puedes preparar una cantidad mayor y congelar porciones para tener comidas rápidas futuras. El pavo se puede sustituir por pollo molido.",
+    "video": "https://www.youtube.com/watch?v=sr9SE-t7Vkk"
+  },
+  {
+    "id": 14,
+    "nombre": "Curry de Garbanzos con Espinacas",
+    "categoriaId": 3,
+    "tiempo": 30,
+    "dificultad": "Media",
+    "porciones": 3,
+    "ingredientes": [
+      "2 latas de garbanzos escurridos",
+      "300g de espinacas frescas",
+      "1 cebolla picada",
+      "2 dientes de ajo picados",
+      "1 cucharada de jengibre fresco rallado",
+      "1 lata de leche de coco light",
+      "2 cucharadas de pasta de curry (rojo o amarillo)",
+      "1 cucharada de aceite de coco",
+      "1 cucharadita de cúrcuma molida",
+      "1/2 cucharadita de comino molido",
+      "Sal al gusto",
+      "Cilantro fresco picado para decorar",
+      "Arroz integral cocido para acompañar (opcional)"
+    ],
+    "preparacion": [
+      "Calienta el aceite de coco en una olla grande a fuego medio.",
+      "Añade la cebolla y cocina hasta que esté transparente (3-4 minutos).",
+      "Agrega el ajo y el jengibre, y cocina por 1 minuto más.",
+      "Incorpora la pasta de curry, cúrcuma y comino, y cocina por 1 minuto para activar los sabores.",
+      "Añade los garbanzos y revuelve para cubrirlos con las especias.",
+      "Vierte la leche de coco, mezcla bien y lleva a ebullición.",
+      "Reduce el fuego y cocina a fuego lento por 15 minutos.",
+      "Agrega las espinacas y cocina hasta que se marchiten (2-3 minutos).",
+      "Prueba y ajusta la sazón si es necesario.",
+      "Sirve caliente sobre arroz integral si deseas, decorado con cilantro fresco."
+    ],
+    "nutricion": {
+      "calorias": "350 kcal",
+      "proteinas": "15g",
+      "carbohidratos": "40g",
+      "grasas": "15g"
+    },
+    "tags": ["vegetariano", "vegano", "sin gluten"],
+    "consejos": "Para un curry más cremoso, usa leche de coco regular en lugar de light. Puedes añadir otras verduras como zanahorias o calabacín.",
+    "video": "https://www.youtube.com/watch?v=aP6eXpwIths"
+  },
+  {
+    "id": 15,
+    "nombre": "Bowl de Burrito con Carne Molida",
+    "categoriaId": 3,
+    "tiempo": 25,
+    "dificultad": "Fácil",
+    "porciones": 2,
+    "ingredientes": [
+      "250g de carne molida magra",
+      "1/2 taza de arroz integral cocido",
+      "1 lata de frijoles negros escurridos",
+      "1 cebolla picada",
+      "1 pimiento verde picado",
+      "2 dientes de ajo picados",
+      "1 tomate picado",
+      "1/4 taza de maíz dulce",
+      "1 cucharada de aceite de oliva",
+      "1 cucharadita de comino molido",
+      "1 cucharadita de pimentón",
+      "1/2 aguacate en rodajas",
+      "Zumo de medio limón",
+      "Cilantro fresco picado",
+      "Salsa de yogur o yogur griego para servir"
+    ],
+    "preparacion": [
+      "Calienta el aceite en una sartén grande a fuego medio.",
+      "Añade la cebolla y el pimiento, y cocina hasta que estén suaves (5 minutos).",
+      "Agrega el ajo y cocina por 30 segundos más.",
+      "Incorpora la carne molida y cocina hasta que esté completamente dorada.",
+      "Añade el comino y pimentón, y mezcla bien.",
+      "Agrega los frijoles y el maíz, y cocina por 2-3 minutos más.",
+      "Para servir, coloca el arroz en la base de cada bowl.",
+      "Añade la mezcla de carne y frijoles encima.",
+      "Decora con tomate picado, aguacate y cilantro.",
+      "Rocía con zumo de limón y sirve con salsa de yogur."
+    ],
+    "nutricion": {
+      "calorias": "450 kcal",
+      "proteinas": "35g",
+      "carbohidratos": "40g",
+      "grasas": "20g"
+    },
+    "tags": ["proteína completa", "fibra", "bajo en grasas"],
+    "consejos": "Puedes preparar todos los ingredientes por separado y guardarlos en el refrigerador para tener comidas rápidas durante la semana. La carne se puede sustituir por pollo desmenuzado.",
+    "video": "https://www.youtube.com/watch?v=qU_DYuEMhcw"
+  },
+  {
+    "id": 16,
+    "nombre": "Mousse de Chocolate con Aguacate",
+    "categoriaId": 4,
+    "tiempo": 15,
+    "dificultad": "Fácil",
+    "porciones": 4,
+    "ingredientes": [
+      "2 aguacates maduros",
+      "1/4 taza de cacao en polvo sin azúcar",
+      "3 cucharadas de miel o sirope de arce",
+      "1/4 taza de leche de almendras",
+      "1 cucharadita de extracto de vainilla",
+      "Pizca de sal",
+      "Frambuesas frescas para decorar (opcional)",
+      "Hojas de menta para decorar (opcional)"
+    ],
+    "preparacion": [
+      "Corta los aguacates por la mitad, quita el hueso y extrae la pulpa en un procesador de alimentos.",
+      "Añade el cacao en polvo, miel, leche de almendras, extracto de vainilla y sal.",
+      "Procesa hasta obtener una mezcla suave y homogénea, parando ocasionalmente para raspar los lados.",
+      "Prueba y ajusta la dulzura si es necesario.",
+      "Transfiere la mousse a copas individuales.",
+      "Refrigera por al menos 1 hora antes de servir.",
+      "Decora con frambuesas frescas y hojas de menta si deseas."
+    ],
+    "nutricion": {
+      "calorias": "220 kcal",
+      "proteinas": "3g",
+      "carbohidratos": "20g",
+      "grasas": "15g"
+    },
+    "tags": ["sin lácteos", "sin gluten", "vegetariano"],
+    "consejos": "El aguacate debe estar muy maduro para lograr una textura cremosa. Para una versión más dulce, puedes añadir stevia o más miel.",
+    "video": "https://www.youtube.com/watch?v=fhBT7_osDKs"
+  },
+  {
+    "id": 17,
+    "nombre": "Galletas de Avena y Plátano",
+    "categoriaId": 4,
+    "tiempo": 25,
+    "dificultad": "Fácil",
+    "porciones": 12,
+    "ingredientes": [
+      "2 plátanos maduros",
+      "1 taza de avena",
+      "1/4 taza de chispas de chocolate negro",
+      "1/4 taza de nueces picadas",
+      "1 cucharadita de canela",
+      "1 cucharadita de extracto de vainilla",
+      "Pizca de sal"
+    ],
+    "preparacion": [
+      "Precalienta el horno a 180°C y forra una bandeja con papel de hornear.",
+      "En un bowl, machaca los plátanos hasta obtener un puré suave.",
+      "Añade la avena, canela, extracto de vainilla y sal, y mezcla bien.",
+      "Incorpora las chispas de chocolate y las nueces.",
+      "Con una cuchara, coloca montoncitos de masa en la bandeja, dándoles forma de galleta.",
+      "Hornea por 15-18 minutos hasta que estén doradas.",
+      "Deja enfriar completamente en una rejilla antes de guardar."
+    ],
+    "nutricion": {
+      "calorias": "120 kcal",
+      "proteinas": "2g",
+      "carbohidratos": "18g",
+      "grasas": "5g"
+    },
+    "tags": ["sin azúcar añadido", "sin harina", "vegano"],
+    "consejos": "Asegúrate de que los plátanos estén muy maduros para mayor dulzura. Puedes sustituir las chispas de chocolate por pasas o arándanos secos.",
+    "video": "https://www.youtube.com/watch?v=O9KNG_Uc2Rc"
+  },
+  {
+    "id": 18,
+    "nombre": "Crema de Frutas Congeladas",
+    "categoriaId": 4,
+    "tiempo": 10,
+    "dificultad": "Fácil",
+    "porciones": 2,
+    "ingredientes": [
+      "2 tazas de frutas congeladas mixtas (fresas, plátano, mango)",
+      "1/4 taza de yogur griego",
+      "1 cucharada de miel o sirope de arce",
+      "1/4 taza de leche (opcional, para ayudar en la mezcla)",
+      "Granola y frutas frescas para decorar"
+    ],
+    "preparacion": [
+      "Coloca las frutas congeladas en un procesador de alimentos o licuadora potente.",
+      "Añade el yogur griego y la miel.",
+      "Procesa hasta obtener una mezcla cremosa, añadiendo un poco de leche si es necesario para facilitar la mezcla.",
+      "Sirve inmediatamente en bowls, decorando con granola y frutas frescas.",
+      "Si quieres una textura más firme como helado, puedes congelar por 30 minutos antes de servir."
+    ],
+    "nutricion": {
+      "calorias": "180 kcal",
+      "proteinas": "5g",
+      "carbohidratos": "35g",
+      "grasas": "2g"
+    },
+    "tags": ["bajo en grasas", "sin azúcar añadido", "alto en fibra"],
+    "consejos": "Puedes preparar bolsas individuales de frutas congeladas para tener listas cuando quieras hacer este postre. Para una versión vegana, sustituye el yogur por leche de coco.",
+    "video": "https://www.youtube.com/watch?v=_G6Kl3BM0jg"
+  },
+  {
+    "id": 19,
+    "nombre": "Pudín de Chía con Frutas",
+    "categoriaId": 4,
+    "tiempo": 10,
+    "dificultad": "Fácil",
+    "porciones": 2,
+    "ingredientes": [
+      "4 cucharadas de semillas de chía",
+      "1 taza de leche de almendras",
+      "1 cucharada de miel o sirope de arce",
+      "1/2 cucharadita de extracto de vainilla",
+      "1/2 taza de fresas picadas",
+      "1/2 plátano en rodajas",
+      "1 cucharada de almendras fileteadas"
+    ],
+    "preparacion": [
+      "En un recipiente, mezcla las semillas de chía, la leche de almendras, la miel y el extracto de vainilla.",
+      "Revuelve bien para evitar grumos y deja reposar 5 minutos.",
+      "Vuelve a revolver y refrigera durante al menos 2 horas o toda la noche.",
+      "Antes de servir, revuelve nuevamente y divide en dos recipientes.",
+      "Decora con las frutas picadas y las almendras fileteadas."
+    ],
+    "nutricion": {
+      "calorias": "200 kcal",
+      "proteinas": "6g",
+      "carbohidratos": "25g",
+      "grasas": "10g"
+    },
+    "tags": ["sin gluten", "omega-3", "fibra"],
+    "consejos": "Las semillas de chía absorben hasta 10 veces su peso en líquido, así que asegúrate de usar suficiente leche. Puedes preparar varios a la vez para tener postres listos durante varios días.",
+    "video": "https://www.youtube.com/watch?v=F_92UjL-2Kc"
+  },
+  {
+    "id": 20,
+    "nombre": "Energy Balls de Dátiles y Cacao",
+    "categoriaId": 4,
+    "tiempo": 15,
+    "dificultad": "Fácil",
+    "porciones": 12,
+    "ingredientes": [
+      "1 taza de dátiles sin hueso",
+      "1/2 taza de nueces",
+      "2 cucharadas de cacao en polvo sin azúcar",
+      "1 cucharada de mantequilla de almendras",
+      "1 cucharadita de extracto de vainilla",
+      "Pizca de sal",
+      "Coco rallado para cubrir (opcional)"
+    ],
+    "preparacion": [
+      "Si los dátiles están muy secos, remójalos en agua tibia por 10 minutos y escúrrelos bien.",
+      "Coloca todos los ingredientes excepto el coco rallado en un procesador de alimentos.",
+      "Procesa hasta obtener una masa pegajosa y uniforme.",
+      "Con las manos ligeramente humedecidas, forma bolitas de tamaño bocado.",
+      "Si deseas, pasa las bolitas por coco rallado para cubrirlas.",
+      "Coloca en el refrigerador por al menos 30 minutos antes de servir.",
+      "Guarda en un recipiente hermético en el refrigerador hasta por una semana."
+    ],
+    "nutricion": {
+      "calorias": "110 kcal",
+      "proteinas": "2g",
+      "carbohidratos": "15g",
+      "grasas": "5g"
+    },
+    "tags": ["sin azúcar añadido", "vegano", "sin gluten"],
+    "consejos": "Puedes sustituir las nueces por almendras o anacardos. Para un toque diferente, añade una pizca de canela o jengibre en polvo.",
+    "video": "https://www.youtube.com/watch?v=SYNz6eyqjQM"
+  }
+]
