@@ -17,7 +17,7 @@ args = "Backend Server"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Frontend Server"
+args = "Frontend Vite Dev"
 
 [[workflows.workflow]]
 name = "Backend Server"
@@ -35,7 +35,7 @@ args = "cd backend && npm install express mongoose cors && node server.js"
 waitForPort = 8000
 
 [[workflows.workflow]]
-name = "Frontend Server"
+name = "Frontend Vite Dev"
 author = "agent"
 
 [workflows.workflow.metadata]
@@ -46,7 +46,7 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd frontend && npm install express && node server.js"
+args = "cd frontend && npx vite --host 0.0.0.0 --port 5000"
 waitForPort = 5000
 
 [deployment]
@@ -55,6 +55,10 @@ run = ["sh", "-c", "cd backend && npm install express mongoose cors && node serv
 [[ports]]
 localPort = 5000
 externalPort = 5000
+
+[[ports]]
+localPort = 5173
+externalPort = 5173
 
 [[ports]]
 localPort = 8000

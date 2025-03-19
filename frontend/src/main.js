@@ -5,7 +5,7 @@ import './index.css'
 import axios from 'axios'
 
 // Configurar axios con la URL base del backend
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 axios.defaults.headers.common['Accept'] = 'application/json'
 axios.defaults.withCredentials = false
 

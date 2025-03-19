@@ -5,7 +5,7 @@ import RecetasPage from '../views/RecetasPage.vue'
 import ComunidadPage from '../views/ComunidadPage.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.VITE_BASE_URL || '/'),
   routes: [
     {
       path: '/',

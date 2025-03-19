@@ -77,6 +77,7 @@
 
 <script>
 import { onMounted, computed } from 'vue'
+import feather from 'feather-icons'
 
 export default {
   name: 'Footer',
