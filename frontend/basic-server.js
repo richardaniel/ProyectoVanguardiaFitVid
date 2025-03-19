@@ -1,102 +1,72 @@
-// Servidor HTTP nativo simplificado
+// Servidor HTTP básico ultra simple
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Puerto en el que se ejecutará el servidor
 const PORT = 5000;
-
-// Función para servir archivos estáticos
-const serveFile = (filePath, contentType, res) => {
-  fs.readFile(filePath, (err, content) => {
-    if (err) {
-      console.error(`Error al leer archivo: ${filePath}`, err);
-      res.writeHead(500);
-      res.end(`Error del servidor: ${err.code}`);
-      return;
-    }
-    
-    // Configurar encabezados para permitir estilos en línea y videos de YouTube
-    res.writeHead(200, {
-      'Content-Type': contentType,
-      'Access-Control-Allow-Origin': '*',
-      'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; frame-src https://www.youtube.com; connect-src 'self';"
-    });
-    
-    res.end(content, 'utf-8');
-  });
-};
 
 // Crear el servidor HTTP
 const server = http.createServer((req, res) => {
-  console.log(`Solicitud: ${req.method} ${req.url}`);
+  console.log(`Solicitud recibida: ${req.method} ${req.url}`);
   
-  // Obtener la ruta de la solicitud
-  let url = req.url;
+  // Redirigir a test.html para cualquier solicitud
+  let filePath = '/test.html';
   
-  // Establecer encabezados CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
-  // Manejar solicitudes OPTIONS para CORS
-  if (req.method === 'OPTIONS') {
-    res.writeHead(204);
-    res.end();
-    return;
+  if (req.url !== '/') {
+    // Para cualquier otra ruta, intentamos servirla directamente
+    filePath = req.url;
   }
   
-  // Para la ruta raíz, servir index.html
-  if (url === '/' || url === '') {
-    url = '/index.html';
-  }
+  // Ruta completa al archivo
+  const fullPath = path.join(__dirname, 'static', filePath);
+  console.log(`Intentando servir: ${fullPath}`);
   
-  // Rutas especiales sin extensión
-  if (url === '/rutinas') {
-    url = '/rutinas.html';
-  }
-  if (url === '/recetas') {
-    url = '/recetas.html';
-  }
-  if (url === '/comunidad') {
-    url = '/comunidad.html';
-  }
-  
-  // Obtener la extensión del archivo
-  const extname = String(path.extname(url)).toLowerCase();
-  
-  // Tipos MIME
-  const contentType = {
-    '.html': 'text/html',
-    '.js': 'text/javascript',
-    '.css': 'text/css',
-    '.json': 'application/json',
-    '.png': 'image/png',
-    '.jpg': 'image/jpeg',
-    '.gif': 'image/gif',
-    '.svg': 'image/svg+xml',
-    '.ico': 'image/x-icon',
-  }[extname] || 'text/plain';
-  
-  // Construir la ruta del archivo en el sistema de archivos
-  const filePath = path.join(__dirname, 'static', url);
-  
-  // Verificar si el archivo existe
-  fs.access(filePath, fs.constants.F_OK, (err) => {
+  // Verificar si el archivo existe y servirlo
+  fs.readFile(fullPath, (err, data) => {
     if (err) {
-      // Si el archivo no existe, mostrar un error 404
-      console.log(`Archivo no encontrado: ${filePath}`);
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      res.end('<h1>404 - Archivo no encontrado</h1><p>Lo sentimos, la página que buscas no existe.</p>');
-    } else {
-      // Si el archivo existe, servirlo
-      serveFile(filePath, contentType, res);
+      console.log(`Error al servir ${fullPath}: ${err.message}`);
+      
+      // Si hay error, intentar servir test.html como fallback
+      if (filePath !== '/test.html') {
+        const testPath = path.join(__dirname, 'static', 'test.html');
+        console.log(`Intentando servir test.html como fallback`);
+        
+        fs.readFile(testPath, (err2, data2) => {
+          if (err2) {
+            console.error(`Error al servir test.html: ${err2.message}`);
+            res.writeHead(404, { 'Content-Type': 'text/html' });
+            res.end('<h1>404 Not Found</h1><p>No se encontró ningún archivo.</p>');
+          } else {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(data2);
+            console.log('Sirviendo test.html como fallback');
+          }
+        });
+      } else {
+        res.writeHead(404, { 'Content-Type': 'text/html' });
+        res.end('<h1>404 Not Found</h1><p>No se encontró test.html.</p>');
+      }
+      return;
     }
+    
+    // Enviar el archivo
+    let contentType = 'text/plain';
+    if (filePath.endsWith('.html')) contentType = 'text/html';
+    if (filePath.endsWith('.css')) contentType = 'text/css';
+    if (filePath.endsWith('.js')) contentType = 'text/javascript';
+    if (filePath.endsWith('.json')) contentType = 'application/json';
+    if (filePath.endsWith('.png')) contentType = 'image/png';
+    if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg')) contentType = 'image/jpeg';
+    if (filePath.endsWith('.svg')) contentType = 'image/svg+xml';
+    
+    res.writeHead(200, { 'Content-Type': contentType });
+    res.end(data);
+    console.log(`Archivo servido con éxito: ${fullPath}`);
   });
 });
 
 // Iniciar el servidor
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`Servidor HTTP básico ejecutándose en http://0.0.0.0:${PORT}`);
-  console.log(`Sirviendo archivos desde: ${path.join(__dirname, 'static')}`);
+  console.log(`Servidor básico ejecutándose en http://0.0.0.0:${PORT}`);
+  console.log(`Sirviendo desde: ${path.join(__dirname, 'static')}`);
 });
