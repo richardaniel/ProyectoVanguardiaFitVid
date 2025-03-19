@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutinas - FitVid</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f5ff;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #0066cc 0%, #003366 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #0066cc;
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #e6f0ff;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1 {
+      color: #0066cc;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .partes-cuerpo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .partes-cuerpo-svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .rutinas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .rutina-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .rutina-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .rutina-card img, .rutina-card div.placeholder {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .rutina-card div.placeholder {
+      background-color: #009933;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .rutina-card h2 {
+      padding: 1rem;
+      margin: 0;
+      color: #0066cc;
+    }
+    .rutina-card p {
+      padding: 0 1rem 1rem;
+      color: #666;
+    }
+    .rutina-card .meta {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem 1rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    .section-title {
+      color: #0066cc;
+      border-bottom: 2px solid #009933;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .ejercicio-detalle {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .ejercicio-detalle:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .ejercicio-detalle h3 {
+      color: #0066cc;
+      margin-top: 0;
+    }
+    .ejercicio-detalle .instrucciones {
+      margin-top: 1rem;
+    }
+    .ejercicio-detalle .instrucciones li {
+      margin-bottom: 0.5rem;
+    }
+    .ejercicio-row {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      align-items: center;
+    }
+    .ejercicio-imagen {
+      flex: 0 0 300px;
+    }
+    .ejercicio-imagen img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .ejercicio-contenido {
+      flex: 1;
+    }
+    footer {
+      background-color: #000000;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .parte-cuerpo-section {
+      display: none;
+    }
+    .parte-cuerpo-section.active {
+      display: block;
+    }
+    .btn-back {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      transition: background-color 0.3s;
+    }
+    .btn-back:hover {
+      background-color: #004c99;
+    }
+
+    /* Estilos para el modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      overflow-y: auto;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+    }
+    .modal-content {
+      background-color: white;
+      border-radius: 8px;
+      max-width: 800px;
+      width: 100%;
+      padding: 2rem;
+      margin: 2rem auto;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #666;
+      transition: color 0.3s;
+    }
+    .modal-close:hover {
+      color: #0066cc;
+    }
+    .ejercicio-header {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .ejercicio-imagen-modal {
+      flex: 0 0 300px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .ejercicio-imagen-modal img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .ejercicio-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    .ejercicio-info h2 {
+      color: #0066cc;
+      margin-top: 0;
+      padding: 0;
+    }
+    .ejercicio-descripcion {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .ejercicio-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      background-color: #f4f7fa;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .ejercicio-meta-item {
+      display: flex;
+      align-items: center;
+      color: #0066cc;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    .ejercicio-pasos {
+      margin-top: 2rem;
+    }
+    .ejercicio-pasos h3 {
+      color: #0066cc;
+      margin-bottom: 1rem;
+    }
+    .ejercicio-video {
+      margin-top: 2rem;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .ejercicio-video iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+    .boton-ver-detalles {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .boton-ver-detalles:hover {
+      background-color: #004c99;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FitVid</h1>
+    <p>Tu comunidad de fitness en español</p>
+  </header>
+  
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="rutinas.html">Rutinas</a>
+    <a href="recetas.html">Recetas</a>
+    <a href="comunidad.html">Comunidad</a>
+  </nav>
+  
+  <main>
+    <h1>Rutinas de Ejercicios</h1>
+    
+    <!-- Selector de partes del cuerpo -->
+    <div id="selector-partes" class="partes-cuerpo-container">
+      <object class="partes-cuerpo-svg" data="images/partes-cuerpo.svg" type="image/svg+xml"></object>
+    </div>
+    
+    <!-- Sección para brazos -->
+    <section id="seccion-brazos" class="parte-cuerpo-section">
+      <button class="btn-back" onclick="volverASelector()">← Volver a todas las rutinas</button>
+      <h2 class="section-title">Ejercicios para Brazos</h2>
+      
+      <div class="ejercicio-detalle" onclick="mostrarEjercicio('curl-biceps')">
+        <div class="ejercicio-row">
+          <div class="ejercicio-imagen">
+            <img src="images/ejercicio-brazos.svg" alt="Curl de bíceps">
+          </div>
+          <div class="ejercicio-contenido">
+            <h3>Curl de Bíceps con Mancuernas</h3>
+            <p>Este ejercicio clásico es excelente para desarrollar los bíceps, uno de los músculos más visibles de los brazos.</p>
+            <div class="meta">
+              <span>Series: 3</span>
+              <span>Repeticiones: 12-15</span>
+            </div>
+            <a href="javascript:void(0)" class="boton-ver-detalles" onclick="event.stopPropagation(); mostrarEjercicio('curl-biceps')">Ver detalles →</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ejercicio-detalle" onclick="mostrarEjercicio('extension-triceps')">
+        <div class="ejercicio-row">
+          <div class="ejercicio-imagen">
+            <img src="images/ejercicio-brazos.svg" alt="Extensiones de tríceps">
+          </div>
+          <div class="ejercicio-contenido">
+            <h3>Extensiones de Tríceps</h3>
+            <p>Este ejercicio se enfoca en los tríceps, que representan aproximadamente dos tercios del tamaño de tus brazos.</p>
+            <div class="meta">
+              <span>Series: 3</span>
+              <span>Repeticiones: 10-12</span>
+            </div>
+            <a href="javascript:void(0)" class="boton-ver-detalles" onclick="event.stopPropagation(); mostrarEjercicio('extension-triceps')">Ver detalles →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección para abdomen -->
+    <section id="seccion-abdomen" class="parte-cuerpo-section">
+      <button class="btn-back" onclick="volverASelector()">← Volver a todas las rutinas</button>
+      <h2 class="section-title">Ejercicios para Abdomen</h2>
+      
+      <div class="ejercicio-detalle" onclick="mostrarEjercicio('abdominales')">
+        <div class="ejercicio-row">
+          <div class="ejercicio-imagen">
+            <img src="images/ejercicio-abdomen.svg" alt="Abdominales">
+          </div>
+          <div class="ejercicio-contenido">
+            <h3>Abdominales Clásicos</h3>
+            <p>Los abdominales clásicos son uno de los ejercicios más efectivos para fortalecer el core y desarrollar los músculos abdominales.</p>
+            <div class="meta">
+              <span>Series: 3</span>
+              <span>Repeticiones: 15-20</span>
+            </div>
+            <a href="javascript:void(0)" class="boton-ver-detalles" onclick="event.stopPropagation(); mostrarEjercicio('abdominales')">Ver detalles →</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ejercicio-detalle" onclick="mostrarEjercicio('plancha')">
+        <div class="ejercicio-row">
+          <div class="ejercicio-imagen">
+            <img src="images/ejercicio-abdomen.svg" alt="Plancha">
+          </div>
+          <div class="ejercicio-contenido">
+            <h3>Plancha Abdominal</h3>
+            <p>La plancha es un ejercicio isométrico excelente para fortalecer todo el core, incluyendo los abdominales, espalda baja y oblicuos.</p>
+            <div class="meta">
+              <span>Series: 3</span>
+              <span>Duración: 30-60 segundos</span>
+            </div>
+            <a href="javascript:void(0)" class="boton-ver-detalles" onclick="event.stopPropagation(); mostrarEjercicio('plancha')">Ver detalles →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección inicial con todas las rutinas -->
+    <section id="todas-rutinas" class="parte-cuerpo-section active">
+      <div class="rutinas-grid">
+        <div class="rutina-card" onclick="mostrarSeccionParte('seccion-brazos')">
+          <div class="placeholder">
+            <img src="images/ejercicio-brazos.svg" alt="Ejercicios para brazos">
+          </div>
+          <h2>Ejercicios para Brazos</h2>
+          <p>Desarrolla bíceps y tríceps con estos efectivos ejercicios para ganar fuerza y definición.</p>
+          <div class="meta">
+            <span>Nivel: Todos los niveles</span>
+            <span>4 ejercicios</span>
+          </div>
+        </div>
+        
+        <div class="rutina-card" onclick="mostrarSeccionParte('seccion-abdomen')">
+          <div class="placeholder">
+            <img src="images/ejercicio-abdomen.svg" alt="Ejercicios para abdomen">
+          </div>
+          <h2>Ejercicios para Abdomen</h2>
+          <p>Fortalece tu core y consigue un abdomen definido con esta rutina completa.</p>
+          <div class="meta">
+            <span>Nivel: Todos los niveles</span>
+            <span>4 ejercicios</span>
+          </div>
+        </div>
+        
+        <div class="rutina-card" onclick="mostrarSeccionParte('seccion-brazos')">
+          <div class="placeholder" style="background-color: #0066cc;">
+            <span style="font-size: 4rem; color: white;">🧘</span>
+          </div>
+          <h2>Yoga para flexibilidad</h2>
+          <p>Mejora tu flexibilidad y reduce el estrés con esta sesión de yoga.</p>
+          <div class="meta">
+            <span>Nivel: Todos los niveles</span>
+            <span>30 min</span>
+          </div>
+        </div>
+        
+        <div class="rutina-card" onclick="mostrarSeccionParte('seccion-brazos')">
+          <div class="placeholder" style="background-color: #009933;">
+            <span style="font-size: 4rem; color: white;">🏋️</span>
+          </div>
+          <h2>Entrenamiento de fuerza</h2>
+          <p>Desarrolla músculo y aumenta tu fuerza con esta rutina completa.</p>
+          <div class="meta">
+            <span>Nivel: Intermedio</span>
+            <span>45 min</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Modal para mostrar los detalles del ejercicio -->
+  <div id="ejercicio-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="cerrarModal()">&times;</button>
+      <div id="ejercicio-detalles">
+        <!-- El contenido del ejercicio se cargará dinámicamente aquí -->
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 FitVid - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    // Datos de los ejercicios
+    const ejercicios = {
+      'curl-biceps': {
+        titulo: 'Curl de Bíceps con Mancuernas',
+        imagen: 'images/ejercicio-brazos.svg',
+        descripcion: 'Este ejercicio clásico es excelente para desarrollar los bíceps, uno de los músculos más visibles de los brazos. Perfecto para principiantes y avanzados por igual.',
+        series: '3 series',
+        repeticiones: '12-15 repeticiones',
+        descanso: '60 segundos',
+        nivel: 'Principiante a intermedio',
+        musculos: 'Bíceps, músculos del antebrazo',
+        instrucciones: [
+          'Párate con los pies separados al ancho de los hombros y una mancuerna en cada mano.',
+          'Mantén los codos cerca del torso y las palmas de las manos hacia adelante.',
+          'Manteniendo la parte superior de los brazos estacionaria, exhala y levanta las pesas mientras contraes los bíceps.',
+          'Continúa elevando las pesas hasta que los bíceps estén completamente contraídos y las mancuernas estén a la altura de los hombros.',
+          'Mantén la posición contraída brevemente mientras aprietas los bíceps.',
+          'Inhala y baja lentamente las mancuernas a la posición inicial.'
+        ],
+        video: 'https://www.youtube.com/embed/ykJmrZ5v0Oo'
+      },
+      'extension-triceps': {
+        titulo: 'Extensiones de Tríceps',
+        imagen: 'images/ejercicio-brazos.svg',
+        descripcion: 'Este ejercicio se enfoca en los tríceps, que representan aproximadamente dos tercios del tamaño de tus brazos. Es excelente para ganar fuerza y definición en la parte posterior del brazo.',
+        series: '3 series',
+        repeticiones: '10-12 repeticiones',
+        descanso: '60 segundos',
+        nivel: 'Principiante a intermedio',
+        musculos: 'Tríceps',
+        instrucciones: [
+          'Siéntate en un banco con la espalda recta.',
+          'Sujeta una mancuerna con ambas manos y levántala sobre tu cabeza hasta extender completamente los brazos.',
+          'Mantén los brazos cerca de las orejas y los codos apuntando hacia adelante.',
+          'Baja lentamente la mancuerna detrás de tu cabeza doblando los codos.',
+          'Haz una pausa cuando los codos estén en ángulo de 90 grados.',
+          'Extiende los brazos para volver a la posición inicial, contrayendo los tríceps en la parte superior del movimiento.'
+        ],
+        video: 'https://www.youtube.com/embed/nRiJVZDpdL0'
+      },
+      'abdominales': {
+        titulo: 'Abdominales Clásicos',
+        imagen: 'images/ejercicio-abdomen.svg',
+        descripcion: 'Los abdominales clásicos son uno de los ejercicios más efectivos para fortalecer el core y desarrollar los músculos abdominales. Este ejercicio ayuda a mejorar la postura y estabilidad.',
+        series: '3 series',
+        repeticiones: '15-20 repeticiones',
+        descanso: '45 segundos',
+        nivel: 'Principiante',
+        musculos: 'Abdominales rectos (rectus abdominis)',
+        instrucciones: [
+          'Acuéstate sobre tu espalda con las rodillas dobladas y los pies apoyados en el suelo.',
+          'Coloca las manos detrás de la cabeza o cruzadas sobre el pecho.',
+          'Contrae los abdominales y levanta los hombros del suelo.',
+          'Mantén la mirada hacia el techo para evitar tensión en el cuello.',
+          'Exhala mientras subes y mantén la contracción por un segundo en la parte superior.',
+          'Baja lentamente a la posición inicial mientras inhalas.'
+        ],
+        video: 'https://www.youtube.com/embed/Xyd_fa5zoEU'
+      },
+      'plancha': {
+        titulo: 'Plancha Abdominal',
+        imagen: 'images/ejercicio-abdomen.svg',
+        descripcion: 'La plancha es un ejercicio isométrico excelente para fortalecer todo el core, incluyendo los abdominales, espalda baja y oblicuos. Es muy efectivo para mejorar la estabilidad y resistencia del core.',
+        series: '3 series',
+        repeticiones: '30-60 segundos',
+        descanso: '45 segundos',
+        nivel: 'Todos los niveles',
+        musculos: 'Abdominales, oblicuos, espalda baja, hombros',
+        instrucciones: [
+          'Colócate en posición de flexión con los antebrazos apoyados en el suelo.',
+          'Mantén los codos directamente debajo de los hombros y los antebrazos apuntando hacia adelante.',
+          'El cuerpo debe formar una línea recta desde la cabeza hasta los talones.',
+          'Contrae los abdominales y los glúteos.',
+          'Mantén la posición respirando de manera normal y controlada.',
+          'Evita dejar caer las caderas o elevar el trasero.'
+        ],
+        video: 'https://www.youtube.com/embed/ASdvN_XEl_c'
+      }
+    };
+
+    // Función para manejar la interacción con el SVG de partes del cuerpo
+    window.addEventListener('load', function() {
+      const svgObject = document.querySelector('.partes-cuerpo-svg');
+      
+      svgObject.addEventListener('load', function() {
+        const svgDoc = svgObject.contentDocument;
+        
+        // Agregar eventos a cada parte del cuerpo
+        const brazosBtn = svgDoc.getElementById('brazos');
+        const abdomenbtn = svgDoc.getElementById('abdomen');
+        
+        if (brazosBtn) {
+          brazosBtn.addEventListener('click', function() {
+            mostrarSeccionParte('seccion-brazos');
+          });
+          brazosBtn.style.cursor = 'pointer';
+        }
+        
+        if (abdomenbtn) {
+          abdomenbtn.addEventListener('click', function() {
+            mostrarSeccionParte('seccion-abdomen');
+          });
+          abdomenbtn.style.cursor = 'pointer';
+        }
+        
+        // Hacer lo mismo para las otras partes del cuerpo
+        const partesDelCuerpo = ['pecho', 'piernas', 'espalda', 'gluteos'];
+        partesDelCuerpo.forEach(parte => {
+          const elemento = svgDoc.getElementById(parte);
+          if (elemento) {
+            elemento.addEventListener('click', function() {
+              // Por ahora redirigir a la sección de brazos como ejemplo
+              mostrarSeccionParte('seccion-brazos');
+            });
+            elemento.style.cursor = 'pointer';
+          }
+        });
+      });
+    });
+    
+    // Función para mostrar una sección específica de parte del cuerpo
+    function mostrarSeccionParte(seccionId) {
+      // Ocultar todas las secciones
+      document.querySelectorAll('.parte-cuerpo-section').forEach(seccion => {
+        seccion.classList.remove('active');
+      });
+      
+      // Mostrar la sección seleccionada
+      document.getElementById(seccionId).classList.add('active');
+    }
+    
+    // Función para volver al selector de partes del cuerpo
+    function volverASelector() {
+      // Ocultar todas las secciones
+      document.querySelectorAll('.parte-cuerpo-section').forEach(seccion => {
+        seccion.classList.remove('active');
+      });
+      
+      // Mostrar la sección de todas las rutinas
+      document.getElementById('todas-rutinas').classList.add('active');
+    }
+
+    // Función para mostrar el modal de un ejercicio
+    function mostrarEjercicio(ejercicioId) {
+      const ejercicio = ejercicios[ejercicioId];
+      if (!ejercicio) return;
+      
+      const detallesContainer = document.getElementById('ejercicio-detalles');
+      
+      // Generar el HTML para los detalles del ejercicio
+      let instruccionesHTML = '';
+      ejercicio.instrucciones.forEach((paso, index) => {
+        instruccionesHTML += `<li>${paso}</li>`;
+      });
+      
+      detallesContainer.innerHTML = `
+        <div class="ejercicio-header">
+          <div class="ejercicio-imagen-modal">
+            <img src="${ejercicio.imagen}" alt="${ejercicio.titulo}">
+          </div>
+          <div class="ejercicio-info">
+            <h2>${ejercicio.titulo}</h2>
+            <p class="ejercicio-descripcion">${ejercicio.descripcion}</p>
+            <div class="ejercicio-meta">
+              <div class="ejercicio-meta-item">${ejercicio.series}</div>
+              <div class="ejercicio-meta-item">${ejercicio.repeticiones}</div>
+              <div class="ejercicio-meta-item">Descanso: ${ejercicio.descanso}</div>
+            </div>
+            <div class="ejercicio-meta">
+              <div class="ejercicio-meta-item">Nivel: ${ejercicio.nivel}</div>
+              <div class="ejercicio-meta-item">Músculos: ${ejercicio.musculos}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ejercicio-pasos">
+          <h3>Instrucciones:</h3>
+          <ol>
+            ${instruccionesHTML}
+          </ol>
+        </div>
+        
+        <div class="ejercicio-video">
+          <h3>Video demostrativo:</h3>
+          <iframe src="${ejercicio.video}" title="${ejercicio.titulo}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      `;
+      
+      // Mostrar el modal
+      document.getElementById('ejercicio-modal').style.display = 'flex';
+    }
+    
+    // Función para cerrar el modal
+    function cerrarModal() {
+      document.getElementById('ejercicio-modal').style.display = 'none';
+    }
+    
+    // Cerrar el modal si se hace clic fuera del contenido
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('ejercicio-modal');
+      if (event.target === modal) {
+        cerrarModal();
+      }
+    });
+  </script>
+</body>
+</html>

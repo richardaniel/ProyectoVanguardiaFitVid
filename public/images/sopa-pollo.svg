@@ -1,0 +1,28 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Tazón de sopa -->
+  <ellipse cx="150" cy="140" rx="120" ry="40" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <path d="M70,140 C70,120 230,120 230,140 L230,160 C230,180 70,180 70,160 Z" fill="#f9e2b7" stroke="#333" stroke-width="2"/>
+  
+  <!-- Caldo -->
+  <ellipse cx="150" cy="140" rx="80" ry="25" fill="#f9e2b7" stroke="none"/>
+  
+  <!-- Ingredientes en la sopa -->
+  <!-- Trozos de pollo -->
+  <path d="M120,130 L130,125 L135,130 L130,135 Z" fill="#f0d6b1" stroke="#333" stroke-width="0.5"/>
+  <path d="M170,145 L180,140 L185,145 L180,150 Z" fill="#f0d6b1" stroke="#333" stroke-width="0.5"/>
+  <path d="M140,145 L150,140 L155,145 L150,150 Z" fill="#f0d6b1" stroke="#333" stroke-width="0.5"/>
+  
+  <!-- Verduras -->
+  <circle cx="110" cy="135" r="5" fill="#ff9f43" stroke="#333" stroke-width="0.5"/> <!-- Zanahoria -->
+  <circle cx="160" cy="130" r="5" fill="#ff9f43" stroke="#333" stroke-width="0.5"/> <!-- Zanahoria -->
+  <ellipse cx="130" cy="140" rx="6" ry="4" fill="#26de81" stroke="#333" stroke-width="0.5" transform="rotate(30,130,140)"/> <!-- Perejil -->
+  <ellipse cx="180" cy="135" rx="6" ry="4" fill="#26de81" stroke="#333" stroke-width="0.5" transform="rotate(-20,180,135)"/> <!-- Perejil -->
+  
+  <!-- Vapor -->
+  <path d="M100,115 Q110,95 120,110" fill="none" stroke="#ccc" stroke-width="1.5"/>
+  <path d="M140,110 Q150,90 160,105" fill="none" stroke="#ccc" stroke-width="1.5"/>
+  <path d="M180,110 Q190,95 200,115" fill="none" stroke="#ccc" stroke-width="1.5"/>
+  
+  <!-- Cuchara -->
+  <path d="M190,155 L220,130 Q225,125 220,120 Q215,115 210,120 L205,125 Z" fill="#e0e0e0" stroke="#333" stroke-width="1.5"/>
+</svg>

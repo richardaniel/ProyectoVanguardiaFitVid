@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidad - FitVid</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #6e48aa 0%, #9e48cd 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #6e48aa;
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #f0e6ff;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1 {
+      color: #6e48aa;
+      margin-bottom: 2rem;
+    }
+    .comentarios {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .comentario {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .comentario:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .comentario .usuario {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .comentario .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #6e48aa;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    .comentario .nombre {
+      font-weight: bold;
+    }
+    .comentario .fecha {
+      color: #888;
+      font-size: 0.9rem;
+      margin-left: auto;
+    }
+    .comentario .texto {
+      margin-left: 50px;
+      color: #555;
+      line-height: 1.5;
+    }
+    .nuevo-comentario {
+      margin-top: 2rem;
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .nuevo-comentario h2 {
+      color: #6e48aa;
+      margin-top: 0;
+    }
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      resize: vertical;
+      min-height: 100px;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #6e48aa;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #5d3d99;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FitVid</h1>
+    <p>Tu comunidad de fitness en español</p>
+  </header>
+  
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="rutinas.html">Rutinas</a>
+    <a href="recetas.html">Recetas</a>
+    <a href="comunidad.html">Comunidad</a>
+  </nav>
+  
+  <main>
+    <h1>Comunidad FitVid</h1>
+    
+    <div class="comentarios">
+      <div class="comentario">
+        <div class="usuario">
+          <div class="avatar">MS</div>
+          <div class="nombre">María Sánchez</div>
+          <div class="fecha">15 Mar 2025</div>
+        </div>
+        <div class="texto">
+          ¡Llevo un mes siguiendo las rutinas de HIIT y he notado una gran diferencia en mi condición física! Recomiendo especialmente la rutina para principiantes.
+        </div>
+      </div>
+      
+      <div class="comentario">
+        <div class="usuario">
+          <div class="avatar">JR</div>
+          <div class="nombre">Juan Rodríguez</div>
+          <div class="fecha">12 Mar 2025</div>
+        </div>
+        <div class="texto">
+          Las recetas de batidos son excelentes para después del entrenamiento. He probado el batido verde detox y es refrescante y nutritivo.
+        </div>
+      </div>
+      
+      <div class="comentario">
+        <div class="usuario">
+          <div class="avatar">AL</div>
+          <div class="nombre">Ana López</div>
+          <div class="fecha">8 Mar 2025</div>
+        </div>
+        <div class="texto">
+          Gracias a esta comunidad he encontrado la motivación que necesitaba para mantener una rutina de ejercicios. ¡Ya llevo 3 meses sin faltar un solo día!
+        </div>
+      </div>
+    </div>
+    
+    <div class="nuevo-comentario">
+      <h2>Deja tu comentario</h2>
+      <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+      <button id="enviar-comentario">Publicar comentario</button>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 FitVid - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    // Script para manejar la publicación de comentarios
+    document.getElementById('enviar-comentario').addEventListener('click', function() {
+      const comentarioTexto = document.querySelector('textarea').value;
+      if (comentarioTexto.trim() === '') {
+        alert('Por favor, escribe un comentario antes de publicar.');
+        return;
+      }
+      
+      // Aquí normalmente enviaríamos el comentario al backend
+      // Por ejemplo:
+      /*
+      fetch('http://localhost:8000/api/comentarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          texto: comentarioTexto,
+          usuario: 'Usuario Anónimo' // En una versión real, esto vendría de un sistema de autenticación
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Código para manejar la respuesta
+        document.querySelector('textarea').value = '';
+        // Actualizar la lista de comentarios
+      })
+      .catch(error => console.error('Error:', error));
+      */
+      
+      // Por ahora, solo mostraremos un mensaje
+      alert('¡Gracias por tu comentario! En nuestra versión completa, tu comentario se publicaría en la comunidad.');
+      document.querySelector('textarea').value = '';
+    });
+  </script>
+</body>
+</html>

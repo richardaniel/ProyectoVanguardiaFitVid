@@ -1,0 +1,28 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Figura haciendo abdominales -->
+  
+  <!-- Colchoneta -->
+  <rect x="50" y="150" width="200" height="10" fill="#009933" stroke="#006622" stroke-width="1" rx="2"/>
+  
+  <!-- Cuerpo -->
+  <ellipse cx="150" cy="140" rx="50" ry="15" fill="#333" stroke="none"/> <!-- Parte inferior -->
+  
+  <!-- Piernas -->
+  <path d="M150,140 C170,110 190,100 210,110" fill="none" stroke="#333" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Torso haciendo abdominales -->
+  <path d="M150,140 L150,140 C130,120 120,100 120,80" fill="none" stroke="#0066cc" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Brazos -->
+  <path d="M120,100 C110,90 100,85 90,90" fill="none" stroke="#0066cc" stroke-width="8" stroke-linecap="round"/>
+  <path d="M120,100 C110,110 100,115 90,110" fill="none" stroke="#0066cc" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Cabeza -->
+  <circle cx="115" cy="70" r="15" fill="#333" stroke="none"/>
+  
+  <!-- Líneas indicadoras del abdomen -->
+  <line x1="130" y1="110" x2="150" y2="110" stroke="#004d99" stroke-width="2"/>
+  <line x1="130" y1="120" x2="150" y2="120" stroke="#004d99" stroke-width="2"/>
+  <line x1="130" y1="130" x2="150" y2="130" stroke="#004d99" stroke-width="2"/>
+  <line x1="140" y1="100" x2="140" y2="140" stroke="#004d99" stroke-width="2"/>
+</svg>
