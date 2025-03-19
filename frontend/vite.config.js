@@ -1,21 +1,47 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { fileURLToPath, URL } from 'node:url'
+const { defineConfig } = require('vite');
+const vue = require('@vitejs/plugin-vue');
+const path = require('path');
+
+// Plugin simple para history API fallback
+function historyFallback() {
+  return {
+    name: 'spa-fallback',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        // Si la URL tiene una extensión, es un recurso normal
+        if (req.url.indexOf('.') !== -1) {
+          return next();
+        }
+        
+        // Para las SPA, redirige a index.html
+        req.url = '/index.html';
+        next();
+      });
+    }
+  };
+}
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
+module.exports = defineConfig({
+  plugins: [
+    vue(),
+    historyFallback()
+  ],
   base: '/',
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': path.resolve(__dirname, 'src')
     }
   },
   server: {
     host: '0.0.0.0',
-    port: 5000,
+    port: 5173,
     strictPort: true,
-    hmr: true,
+    hmr: {
+      protocol: 'ws',
+      host: '0.0.0.0',
+      port: 5173
+    },
     proxy: {
       '/api': {
         target: 'http://localhost:8000',
@@ -23,6 +49,15 @@ export default defineConfig({
       }
     }
   },
-  // Asegurarse de que las rutas SPA sean manejadas correctamente
-  appType: 'spa'
-})
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true,
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
+  }
+});

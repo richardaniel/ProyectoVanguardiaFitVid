@@ -3,18 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0 --port 5000",
+    "start": "node server.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --port 5000 --host 0.0.0.0"
   },
   "dependencies": {
-    "axios": "^1.8.3",
-    "vue": "^3.5.13",
-    "vue-router": "^4.3.0"
+    "axios": "^1.6.0",
+    "express": "^4.18.2",
+    "feather-icons": "^4.29.0",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.3",
-    "tailwindcss": "^4.0.14",
-    "vite": "^5.3.2"
+    "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.7"
   }
 }

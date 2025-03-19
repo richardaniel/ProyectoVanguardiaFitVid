@@ -1,181 +1,70 @@
 <template>
-  <div class="rutinas-page page-container py-10">
-    <h1 class="section-title">Rutinas de Ejercicio</h1>
-
-    <div v-if="!selectedBodyPart">
-      <p class="text-center text-lg mb-8">
-        Selecciona una parte del cuerpo para ver ejercicios específicos
-      </p>
-      
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-8">
-        <div 
-          v-for="part in bodyParts" 
-          :key="part.id" 
-          class="body-part-card card cursor-pointer text-center transition-transform duration-300 transform hover:scale-105"
-          @click="selectBodyPart(part)"
-        >
-          <div class="mb-4 h-32 flex items-center justify-center">
-            <i :data-feather="part.icon" class="w-16 h-16 text-blue-600"></i>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">Rutinas de Ejercicio</h1>
+    
+    <p class="text-center text-lg mb-12">Encuentra la rutina perfecta para alcanzar tus objetivos fitness.</p>
+    
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Rutinas Populares</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Tarjeta de rutina ejemplo -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <i data-feather="activity" class="text-gray-500 w-12 h-12"></i>
           </div>
-          <h3 class="text-xl font-semibold">{{ part.nombre }}</h3>
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-xl font-semibold">HIIT 20 minutos</h3>
+              <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Intermedio</span>
+            </div>
+            <p class="text-gray-600 mb-4">Entrenamiento de alta intensidad para quemar calorías y mejorar tu resistencia.</p>
+            <router-link to="/rutinas/hiit-20min" class="text-primary font-medium hover:underline">Ver detalles →</router-link>
+          </div>
+        </div>
+        
+        <!-- Más tarjetas de rutina aquí -->
+      </div>
+    </div>
+    
+    <div>
+      <h2 class="text-2xl font-semibold mb-4">Categorías</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-purple-100 p-4 rounded-lg text-center hover:bg-purple-200 transition-colors cursor-pointer">
+          <i data-feather="zap" class="mx-auto mb-2 text-purple-600"></i>
+          <h3 class="font-medium">Pérdida de Peso</h3>
+        </div>
+        <div class="bg-blue-100 p-4 rounded-lg text-center hover:bg-blue-200 transition-colors cursor-pointer">
+          <i data-feather="award" class="mx-auto mb-2 text-blue-600"></i>
+          <h3 class="font-medium">Ganancia Muscular</h3>
+        </div>
+        <div class="bg-green-100 p-4 rounded-lg text-center hover:bg-green-200 transition-colors cursor-pointer">
+          <i data-feather="heart" class="mx-auto mb-2 text-green-600"></i>
+          <h3 class="font-medium">Cardio</h3>
+        </div>
+        <div class="bg-yellow-100 p-4 rounded-lg text-center hover:bg-yellow-200 transition-colors cursor-pointer">
+          <i data-feather="sunrise" class="mx-auto mb-2 text-yellow-600"></i>
+          <h3 class="font-medium">Flexibilidad</h3>
         </div>
       </div>
     </div>
-
-    <div v-else>
-      <div class="flex justify-between items-center mb-8">
-        <button @click="backToBodyParts" class="btn-tertiary flex items-center">
-          <i data-feather="arrow-left" class="mr-2"></i> Volver
-        </button>
-        <h2 class="text-2xl font-bold">Ejercicios para {{ selectedBodyPart.nombre }}</h2>
-        <button 
-          v-if="selectedExercises.length > 0" 
-          @click="showResumen = true" 
-          class="btn-primary flex items-center"
-        >
-          Ver Resumen ({{ selectedExercises.length }})
-          <i data-feather="clipboard" class="ml-2"></i>
-        </button>
-      </div>
-
-      <div v-if="loading" class="text-center py-10">
-        <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
-        <p class="mt-4 text-gray-600">Cargando ejercicios...</p>
-      </div>
-
-      <div v-else-if="exercises.length === 0" class="text-center py-10">
-        <p>No se encontraron ejercicios para esta parte del cuerpo.</p>
-      </div>
-
-      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <EjercicioCard 
-          v-for="ejercicio in exercises" 
-          :key="ejercicio.id" 
-          :ejercicio="ejercicio"
-          :isSelected="isExerciseSelected(ejercicio.id)"
-          @toggle="toggleExercise(ejercicio)"
-        />
-      </div>
-    </div>
-
-    <!-- Modal de Resumen -->
-    <transition name="fade">
-      <ResumenRutina 
-        v-if="showResumen" 
-        :exercises="selectedExercises"
-        @close="showResumen = false"
-        @remove="removeFromResumen"
-      />
-    </transition>
   </div>
 </template>
 
 <script>
-import { ref, onMounted, watch } from 'vue'
-import { ejerciciosService } from '../services/api'
-import feather from 'feather-icons'
-import EjercicioCard from '../components/rutinas/EjercicioCard.vue'
-import ResumenRutina from '../components/rutinas/ResumenRutina.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'RutinasPage',
-  components: {
-    EjercicioCard,
-    ResumenRutina
-  },
-  setup() {
-    const bodyParts = ref([
-      { id: 1, nombre: 'Pecho', icon: 'shield' },
-      { id: 2, nombre: 'Espalda', icon: 'columns' },
-      { id: 3, nombre: 'Hombro', icon: 'triangle' },
-      { id: 4, nombre: 'Tríceps', icon: 'chevrons-down' },
-      { id: 5, nombre: 'Bíceps', icon: 'chevrons-up' },
-      { id: 6, nombre: 'Glúteos', icon: 'square' },
-      { id: 7, nombre: 'Abdomen', icon: 'grid' },
-      { id: 8, nombre: 'Piernas', icon: 'clipboard' },
-      { id: 9, nombre: 'Antebrazo', icon: 'edit-2' },
-      { id: 10, nombre: 'Pantorrillas', icon: 'anchor' }
-    ])
-    
-    const selectedBodyPart = ref(null)
-    const exercises = ref([])
-    const selectedExercises = ref([])
-    const showResumen = ref(false)
-    const loading = ref(false)
-
-    const fetchExercises = async (bodyPartId) => {
-      loading.value = true
-      try {
-        const response = await ejerciciosService.getByBodyPart(bodyPartId)
-        exercises.value = response.data
-        console.log('Ejercicios cargados:', response.data)
-      } catch (error) {
-        console.error('Error al cargar ejercicios:', error)
-        exercises.value = []
-      } finally {
-        loading.value = false
-      }
-    }
-
-    const selectBodyPart = (part) => {
-      selectedBodyPart.value = part
-      fetchExercises(part.id)
-    }
-
-    const backToBodyParts = () => {
-      selectedBodyPart.value = null
-      exercises.value = []
-    }
-
-    const toggleExercise = (ejercicio) => {
-      const index = selectedExercises.value.findIndex(ex => ex.id === ejercicio.id)
-      if (index === -1) {
-        selectedExercises.value.push(ejercicio)
-      } else {
-        selectedExercises.value.splice(index, 1)
-      }
-    }
-
-    const isExerciseSelected = (id) => {
-      return selectedExercises.value.some(ex => ex.id === id)
-    }
-
-    const removeFromResumen = (ejercicioId) => {
-      const index = selectedExercises.value.findIndex(ex => ex.id === ejercicioId)
-      if (index !== -1) {
-        selectedExercises.value.splice(index, 1)
-      }
-    }
-
-    onMounted(() => {
-      feather.replace()
-    })
-
-    watch([selectedBodyPart, showResumen], () => {
-      setTimeout(() => {
-        feather.replace()
-      }, 100)
-    })
-
-    return {
-      bodyParts,
-      selectedBodyPart,
-      exercises,
-      selectedExercises,
-      showResumen,
-      loading,
-      selectBodyPart,
-      backToBodyParts,
-      toggleExercise,
-      isExerciseSelected,
-      removeFromResumen
+  mounted() {
+    if (window.feather) {
+      window.feather.replace()
     }
   }
-}
+})
 </script>
 
 <style scoped>
-.body-part-card:hover {
-  border-color: #3b82f6;
+.text-primary {
+  color: #4f46e5;
 }
 </style>

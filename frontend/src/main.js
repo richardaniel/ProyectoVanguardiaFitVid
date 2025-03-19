@@ -9,9 +9,17 @@ axios.defaults.baseURL = 'http://localhost:8000'
 axios.defaults.headers.common['Accept'] = 'application/json'
 axios.defaults.withCredentials = false
 
-// Proporcionar axios globalmente
+// Configuración de la aplicación
 const app = createApp(App)
+
+// Proporcionar axios globalmente
 app.config.globalProperties.$axios = axios
 
+// Configurar router
 app.use(router)
+
+// Montar la aplicación
 app.mount('#app')
+
+// Para depuración
+console.log('Aplicación Vue montada correctamente')
