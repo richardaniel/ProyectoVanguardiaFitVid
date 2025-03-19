@@ -2,13 +2,13 @@
   "name": "fitvid-frontend",
   "version": "1.0.0",
   "description": "Frontend para la aplicación FitVid",
-  "main": "server-static.js",
-  "type": "module",
+  "main": "express-server.js",
   "scripts": {
-    "start": "node server-static.js"
+    "start": "node express-server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "debug": "^4.3.1"
   }
 }

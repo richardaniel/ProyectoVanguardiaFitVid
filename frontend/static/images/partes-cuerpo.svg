@@ -1,0 +1,29 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Silueta humana -->
+  <path d="M400,100 C430,100 450,120 450,150 C450,170 440,185 425,195 L420,220 C420,220 440,225 440,245 L440,320 C440,320 450,325 450,335 L450,370 C450,370 430,390 430,420 L430,500 C430,500 425,520 400,520 C375,520 370,500 370,500 L370,420 C370,390 350,370 350,370 L350,335 C350,325 360,320 360,320 L360,245 C360,225 380,220 380,220 L375,195 C360,185 350,170 350,150 C350,120 370,100 400,100 Z" fill="#ccc" stroke="#333" stroke-width="2"/>
+  
+  <!-- Partes del cuerpo con botones interactivos -->
+  <!-- Brazos -->
+  <circle id="brazos" cx="300" cy="250" r="40" fill="#0066cc" stroke="#333" stroke-width="2"/>
+  <text x="300" y="255" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Brazos</text>
+  
+  <!-- Pecho -->
+  <circle id="pecho" cx="400" cy="200" r="40" fill="#009933" stroke="#333" stroke-width="2"/>
+  <text x="400" y="205" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Pecho</text>
+  
+  <!-- Abdomen -->
+  <circle id="abdomen" cx="400" cy="300" r="40" fill="#0066cc" stroke="#333" stroke-width="2"/>
+  <text x="400" y="305" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Abdomen</text>
+  
+  <!-- Piernas -->
+  <circle id="piernas" cx="400" cy="400" r="40" fill="#009933" stroke="#333" stroke-width="2"/>
+  <text x="400" y="405" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Piernas</text>
+  
+  <!-- Espalda -->
+  <circle id="espalda" cx="500" cy="250" r="40" fill="#0066cc" stroke="#333" stroke-width="2"/>
+  <text x="500" y="255" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Espalda</text>
+  
+  <!-- Glúteos -->
+  <circle id="gluteos" cx="500" cy="350" r="40" fill="#009933" stroke="#333" stroke-width="2"/>
+  <text x="500" y="355" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Glúteos</text>
+</svg>

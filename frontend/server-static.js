@@ -23,6 +23,26 @@ const mimeTypes = {
   '.json': 'application/json'
 };
 
+// Función para servir un archivo
+const serveFile = (filePath, contentType, res) => {
+  fs.readFile(filePath, (err, content) => {
+    if (err) {
+      console.error(`Error al leer el archivo ${filePath}:`, err);
+      res.writeHead(500);
+      res.end('Error interno del servidor');
+      return;
+    }
+    
+    // Configurar encabezados y enviar el contenido
+    res.writeHead(200, { 
+      'Content-Type': contentType,
+      'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self' 'unsafe-inline';"
+    });
+    res.end(content, 'utf-8');
+    console.log(`Archivo servido con éxito: ${filePath}`);
+  });
+};
+
 // Crear el servidor HTTP
 const server = http.createServer((req, res) => {
   console.log(`Solicitud recibida: ${req.url}`);
@@ -53,56 +73,44 @@ const server = http.createServer((req, res) => {
     url = '/index.html';
   }
   
-  // Construir la ruta del archivo
-  const filePath = path.join(__dirname, 'static', url);
-  console.log(`Intentando servir archivo: ${filePath}`);
+  // Probar varias rutas posibles para el archivo
+  const possiblePaths = [
+    path.join(__dirname, url),                // Directamente en el directorio frontend
+    path.join(__dirname, 'static', url),      // En el subdirectorio static 
+    path.join(__dirname, '..', url)           // En el directorio raíz del proyecto
+  ];
   
-  // Obtener la extensión del archivo
-  const extname = path.extname(filePath);
-  const contentType = mimeTypes[extname] || 'application/octet-stream';
-  
-  // Verificar si el archivo existe
-  fs.access(filePath, fs.constants.F_OK, (err) => {
-    if (err) {
-      // Si el archivo no existe, servir index.html por defecto
-      console.log(`Archivo no encontrado: ${filePath}, redirigiendo a index.html`);
-      fs.readFile(path.join(__dirname, 'static', 'index.html'), (err, content) => {
-        if (err) {
-          res.writeHead(500);
-          res.end('Error interno del servidor');
-          return;
-        }
-        
-        res.writeHead(200, { 
-          'Content-Type': 'text/html',
-          'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
-        });
-        res.end(content, 'utf-8');
-      });
+  // Función para intentar servir el archivo desde diferentes ubicaciones
+  const tryServePath = (index) => {
+    if (index >= possiblePaths.length) {
+      // Si ninguna de las rutas funciona, servir index.html
+      console.log('No se encontró el archivo en ninguna ubicación, sirviendo index.html');
+      serveFile(path.join(__dirname, 'index.html'), 'text/html', res);
       return;
     }
     
-    // Leer y servir el archivo
-    fs.readFile(filePath, (err, content) => {
+    const filePath = possiblePaths[index];
+    console.log(`Intentando servir archivo desde: ${filePath}`);
+    
+    fs.access(filePath, fs.constants.F_OK, (err) => {
       if (err) {
-        res.writeHead(500);
-        res.end(`Error interno del servidor: ${err.code}`);
-        return;
+        // Probar la siguiente ruta
+        tryServePath(index + 1);
+      } else {
+        // Servir el archivo encontrado
+        const extname = path.extname(filePath);
+        const contentType = mimeTypes[extname] || 'application/octet-stream';
+        serveFile(filePath, contentType, res);
       }
-      
-      // Agregar encabezados de Content Security Policy
-      res.writeHead(200, { 
-        'Content-Type': contentType,
-        'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
-      });
-      res.end(content, 'utf-8');
-      console.log(`Archivo servido con éxito: ${filePath}`);
     });
-  });
+  };
+  
+  // Comenzar a intentar las rutas
+  tryServePath(0);
 });
 
 // Iniciar el servidor
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor frontend ejecutándose en http://0.0.0.0:${PORT}`);
-  console.log(`Archivos estáticos servidos desde: ${path.join(__dirname, 'static')}`);
+  console.log(`Buscando archivos en: ${__dirname}, ${path.join(__dirname, 'static')}, y ${path.join(__dirname, '..')}`);
 });

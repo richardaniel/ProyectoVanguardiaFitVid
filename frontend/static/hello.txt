@@ -1,0 +1,1 @@
+Hello, this is a test file to check if static files are being served correctly.
