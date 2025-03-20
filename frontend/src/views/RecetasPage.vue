@@ -16,21 +16,25 @@
       </div>
     </div>
 
+    <!-- Cargando -->
     <div v-if="loading" class="text-center py-10">
       <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-600"></div>
       <p class="mt-4 text-gray-600">Cargando recetas...</p>
     </div>
 
+    <!-- No hay recetas -->
     <div v-else-if="recetas.length === 0" class="text-center py-10">
       <p>No se encontraron recetas para esta categoría.</p>
     </div>
 
+    <!-- Recetas -->
     <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <RecetaCard 
         v-for="receta in recetas" 
         :key="receta.id" 
         :receta="receta"
         @click="openRecetaDetalle(receta)"
+        class="transition-transform transform hover:scale-105"
       />
     </div>
 
@@ -39,7 +43,7 @@
       <RecetaDetalle 
         v-if="selectedReceta" 
         :receta="selectedReceta"
-        @close="selectedReceta = null"
+        @close="closeRecetaDetalle"
       />
     </transition>
   </div>
@@ -86,10 +90,15 @@ export default {
     const selectCategoria = (categoriaId) => {
       selectedCategoria.value = categoriaId
       fetchRecetas(categoriaId)
+      selectedReceta.value = null // Cerrar el modal al cambiar de categoría
     }
 
     const openRecetaDetalle = (receta) => {
       selectedReceta.value = receta
+    }
+
+    const closeRecetaDetalle = () => {
+      selectedReceta.value = null
     }
 
     onMounted(() => {
@@ -110,7 +119,8 @@ export default {
       selectedReceta,
       loading,
       selectCategoria,
-      openRecetaDetalle
+      openRecetaDetalle,
+      closeRecetaDetalle
     }
   }
 }
@@ -125,5 +135,17 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+
+.transform {
+  transform: scale(1);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
 }
 </style>

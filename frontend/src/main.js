@@ -4,13 +4,14 @@ import router from './router'
 import './index.css'
 import axios from 'axios'
 
-// Configurar axios con la URL base del backend
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
-axios.defaults.headers.common['Accept'] = 'application/json'
-axios.defaults.withCredentials = false
+// Configurar Axios globalmente
+import { configureAxios } from './services/axiosConfig'
 
 // Configuración de la aplicación
 const app = createApp(App)
+
+// Configurar Axios
+configureAxios()
 
 // Proporcionar axios globalmente
 app.config.globalProperties.$axios = axios
@@ -21,5 +22,7 @@ app.use(router)
 // Montar la aplicación
 app.mount('#app')
 
-// Para depuración
-console.log('Aplicación Vue montada correctamente')
+// Eliminar console.log antes de producción
+if (import.meta.env.MODE === 'development') {
+  console.log('Aplicación Vue montada correctamente')
+}

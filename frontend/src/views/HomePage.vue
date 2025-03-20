@@ -1,11 +1,11 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-primary mb-8 text-center">Bienvenido a FitVid</h1>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Tarjeta Rutinas -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105">
-        <div class="relative h-48 bg-gradient-to-r from-purple-500 to-indigo-600">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl">
+        <div class="relative h-48 bg-gradient-to-r from-purple-500 to-indigo-600 transform transition-all hover:scale-110">
           <div class="absolute inset-0 flex items-center justify-center">
             <i data-feather="activity" class="text-white w-16 h-16"></i>
           </div>
@@ -13,13 +13,16 @@
         <div class="p-6">
           <h2 class="text-2xl font-semibold mb-2">Rutinas de Ejercicio</h2>
           <p class="text-gray-600 mb-4">Descubre rutinas personalizadas para cada nivel y objetivo. Desde pérdida de peso hasta ganancia muscular.</p>
-          <router-link to="/rutinas" class="text-primary font-medium hover:underline">Explorar rutinas →</router-link>
+          <router-link to="/rutinas" class="text-primary font-medium hover:underline flex items-center space-x-1">
+            <span>Explorar rutinas</span>
+            <i data-feather="arrow-right-circle" class="w-5 h-5"></i>
+          </router-link>
         </div>
       </div>
-      
+
       <!-- Tarjeta Recetas -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105">
-        <div class="relative h-48 bg-gradient-to-r from-green-500 to-teal-600">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl">
+        <div class="relative h-48 bg-gradient-to-r from-green-500 to-teal-600 transform transition-all hover:scale-110">
           <div class="absolute inset-0 flex items-center justify-center">
             <i data-feather="coffee" class="text-white w-16 h-16"></i>
           </div>
@@ -27,13 +30,16 @@
         <div class="p-6">
           <h2 class="text-2xl font-semibold mb-2">Recetas Saludables</h2>
           <p class="text-gray-600 mb-4">Aprende a preparar comidas nutritivas y deliciosas que complementen tu estilo de vida activo.</p>
-          <router-link to="/recetas" class="text-primary font-medium hover:underline">Ver recetas →</router-link>
+          <router-link to="/recetas" class="text-primary font-medium hover:underline flex items-center space-x-1">
+            <span>Ver recetas</span>
+            <i data-feather="arrow-right-circle" class="w-5 h-5"></i>
+          </router-link>
         </div>
       </div>
-      
+
       <!-- Tarjeta Comunidad -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105">
-        <div class="relative h-48 bg-gradient-to-r from-yellow-500 to-orange-600">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl">
+        <div class="relative h-48 bg-gradient-to-r from-yellow-500 to-orange-600 transform transition-all hover:scale-110">
           <div class="absolute inset-0 flex items-center justify-center">
             <i data-feather="users" class="text-white w-16 h-16"></i>
           </div>
@@ -41,11 +47,14 @@
         <div class="p-6">
           <h2 class="text-2xl font-semibold mb-2">Comunidad Fitness</h2>
           <p class="text-gray-600 mb-4">Únete a una comunidad de personas con objetivos similares. Comparte progresos y motívate.</p>
-          <router-link to="/comunidad" class="text-primary font-medium hover:underline">Unirse a la comunidad →</router-link>
+          <router-link to="/comunidad" class="text-primary font-medium hover:underline flex items-center space-x-1">
+            <span>Unirse a la comunidad</span>
+            <i data-feather="arrow-right-circle" class="w-5 h-5"></i>
+          </router-link>
         </div>
       </div>
     </div>
-    
+
     <!-- Destacados -->
     <section class="mt-16">
       <h2 class="text-2xl font-bold mb-6 text-center">Destacados de la Semana</h2>

@@ -1,26 +1,26 @@
 <template>
   <div class="bg-white rounded-xl shadow-lg p-6">
-    <h3 class="text-xl font-semibold mb-4">Comparte tu experiencia</h3>
+    <h3 class="text-xl font-semibold mb-4 text-gray-800">Comparte tu experiencia</h3>
     
     <form @submit.prevent="submitComentario">
       <div class="mb-4">
-        <label for="nombre" class="block text-gray-700 mb-2">Nombre (opcional)</label>
+        <label for="nombre" class="block text-gray-700 font-medium">Nombre (opcional)</label>
         <input 
           id="nombre" 
           v-model="nombre" 
           type="text" 
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition duration-200"
           placeholder="Tu nombre"
         >
       </div>
       
       <div class="mb-4">
-        <label for="comentario" class="block text-gray-700 mb-2">Comentario</label>
+        <label for="comentario" class="block text-gray-700 font-medium">Comentario</label>
         <textarea 
           id="comentario" 
           v-model="comentario" 
           rows="4" 
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition duration-200"
           placeholder="Comparte tus pensamientos, logros, preguntas o consejos con la comunidad..."
           required
         ></textarea>
@@ -32,41 +32,44 @@
       <div class="flex justify-end">
         <button 
           type="submit" 
-          class="btn-primary"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 flex items-center"
           :disabled="isSubmitting || !comentario.trim()"
           :class="{ 'opacity-50 cursor-not-allowed': isSubmitting || !comentario.trim() }"
         >
-          <span v-if="isSubmitting">
-            <i data-feather="loader" class="w-4 h-4 mr-2 animate-spin"></i>
-            Enviando...
-          </span>
-          <span v-else>
-            <i data-feather="send" class="w-4 h-4 mr-2"></i>
-            Publicar Comentario
-          </span>
+          <svg v-if="isSubmitting" class="animate-spin w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+          <span v-if="isSubmitting">Enviando...</span>
+          <span v-else>Publicar Comentario</span>
         </button>
       </div>
     </form>
     
-    <div 
-      v-if="errorMessage" 
-      class="mt-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded"
-    >
-      {{ errorMessage }}
-    </div>
+    <transition name="fade">
+      <div 
+        v-if="errorMessage" 
+        class="mt-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg text-sm"
+      >
+        {{ errorMessage }}
+      </div>
+    </transition>
     
-    <div 
-      v-if="successMessage" 
-      class="mt-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded"
-    >
-      {{ successMessage }}
-    </div>
+    <transition name="fade">
+      <div 
+        v-if="successMessage" 
+        class="mt-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg text-sm"
+      >
+        {{ successMessage }}
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import { ref, watch, onMounted } from 'vue'
 import axios from 'axios'
+import feather from 'feather-icons'
 
 export default {
   name: 'ComentarioForm',
@@ -86,7 +89,7 @@ export default {
       isSubmitting.value = true
       
       try {
-        const response = await axios.post('/api/comentarios', {
+        const response = await axios.post('http://localhost:5000/api/comentarios', {  // <-- Se corrige la URL de la API
           nombre: nombre.value || 'Anónimo',
           contenido: comentario.value,
           fecha: new Date().toISOString()
@@ -130,3 +133,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>

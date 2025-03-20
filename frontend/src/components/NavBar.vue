@@ -2,6 +2,8 @@
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="page-container">
       <div class="flex justify-between items-center py-4">
+        
+        <!-- Logo y nombre -->
         <router-link to="/" class="flex items-center">
           <div class="w-10 h-10 mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-full h-full">
@@ -27,7 +29,11 @@
         
         <!-- Menú hamburguesa para móvil -->
         <div class="md:hidden">
-          <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="text-gray-600 focus:outline-none">
+          <button 
+            @click="isMobileMenuOpen = !isMobileMenuOpen" 
+            class="text-gray-600 focus:outline-none" 
+            aria-label="Abrir menú móvil"
+          >
             <i data-feather="menu" v-if="!isMobileMenuOpen"></i>
             <i data-feather="x" v-else></i>
           </button>
@@ -35,7 +41,7 @@
       </div>
       
       <!-- Menú móvil desplegable -->
-      <div v-if="isMobileMenuOpen" class="md:hidden">
+      <div v-if="isMobileMenuOpen" class="md:hidden transition-all duration-300 ease-in-out transform translate-y-0">
         <div class="pt-2 pb-4 space-y-1">
           <router-link 
             v-for="item in navItems" 
@@ -54,7 +60,7 @@
 </template>
 
 <script>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import feather from 'feather-icons'
 
@@ -78,18 +84,8 @@ export default {
       return route.path.startsWith(path)
     }
     
-    watch(route, () => {
-      isMobileMenuOpen.value = false
-    })
-    
     onMounted(() => {
       feather.replace()
-    })
-    
-    watch(isMobileMenuOpen, () => {
-      setTimeout(() => {
-        feather.replace()
-      }, 0)
     })
     
     return {
@@ -102,6 +98,7 @@ export default {
 </script>
 
 <style scoped>
+/* Menú de enlaces con transición */
 .nav-link {
   position: relative;
 }
@@ -120,5 +117,19 @@ export default {
 .nav-link:hover::after,
 .nav-link.text-blue-600::after {
   width: 100%;
+}
+
+/* Efecto del menú móvil */
+.transition-all {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Diseño responsive del menú móvil */
+.md:hidden {
+  display: block;
+}
+
+.md:flex {
+  display: none;
 }
 </style>

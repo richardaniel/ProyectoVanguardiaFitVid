@@ -1,27 +1,27 @@
 <template>
   <div class="comunidad-page page-container py-10">
     <h1 class="section-title">Comunidad FitVid</h1>
-    
+
     <div class="max-w-4xl mx-auto">
       <p class="text-center text-lg mb-10">
         Comparte tus pensamientos, preguntas y logros con la comunidad fitness.
         No necesitas registrarte para participar.
       </p>
-      
+
       <ComentarioForm @comentario-added="onComentarioAdded" />
-      
+
       <div class="mt-12">
         <h2 class="section-subtitle">Comentarios Recientes</h2>
-        
+
         <div v-if="loading" class="text-center py-10">
           <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
           <p class="mt-4 text-gray-600">Cargando comentarios...</p>
         </div>
-        
+
         <div v-else-if="comentarios.length === 0" class="text-center py-10">
           <p>No hay comentarios aún. ¡Sé el primero en compartir!</p>
         </div>
-        
+
         <ComentariosList 
           v-else 
           :comentarios="comentarios" 
@@ -47,14 +47,16 @@ export default {
   setup() {
     const comentarios = ref([])
     const loading = ref(false)
+    const errorMessage = ref('') // Para mostrar errores
 
     const fetchComentarios = async () => {
       loading.value = true
       try {
-        const response = await axios.get('/api/comentarios')
+        const response = await axios.get(`${process.env.VUE_APP_API_URL}/comentarios`)
         comentarios.value = response.data
       } catch (error) {
         console.error('Error al cargar comentarios:', error)
+        errorMessage.value = 'Hubo un problema al cargar los comentarios. Inténtalo más tarde.'
         comentarios.value = []
       } finally {
         loading.value = false
@@ -67,10 +69,11 @@ export default {
 
     const deleteComentario = async (comentarioId) => {
       try {
-        await axios.delete(`/api/comentarios/${comentarioId}`)
+        await axios.delete(`${process.env.VUE_APP_API_URL}/comentarios/${comentarioId}`)
         comentarios.value = comentarios.value.filter(c => c._id !== comentarioId)
       } catch (error) {
         console.error('Error al eliminar comentario:', error)
+        errorMessage.value = 'Hubo un problema al eliminar el comentario. Inténtalo más tarde.'
       }
     }
 
@@ -81,9 +84,14 @@ export default {
     return {
       comentarios,
       loading,
+      errorMessage, // Pasar mensaje de error al template
       onComentarioAdded,
       deleteComentario
     }
   }
 }
 </script>
+
+<style scoped>
+/* Agregar estilos o animaciones personalizadas si es necesario */
+</style>

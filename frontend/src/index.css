@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fuente personalizada Montserrat (si no la has importado, agrégala en index.html) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
 body {
   font-family: 'Montserrat', sans-serif;
   @apply bg-gray-50;
 }
 
+/* Botones */
 .btn-primary {
   @apply px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 transform hover:scale-105;
 }
@@ -19,14 +23,17 @@ body {
   @apply px-6 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-all duration-300;
 }
 
+/* Tarjetas */
 .card {
   @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300;
 }
 
+/* Contenedor de página */
 .page-container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
 }
 
+/* Títulos de secciones */
 .section-title {
   @apply text-3xl font-bold text-gray-800 mb-8 text-center;
 }
@@ -35,6 +42,7 @@ body {
   @apply text-xl font-semibold text-gray-700 mb-4;
 }
 
+/* Transiciones de desvanecimiento */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -43,4 +51,19 @@ body {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Media queries para diseño responsive */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-2xl; /* Ajuste del tamaño de fuente en pantallas pequeñas */
+  }
+
+  .section-subtitle {
+    @apply text-lg; /* Ajuste del tamaño de fuente en pantallas pequeñas */
+  }
+  
+  .card {
+    @apply p-4; /* Ajuste de padding para pantallas pequeñas */
+  }
 }

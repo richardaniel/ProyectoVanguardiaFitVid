@@ -3,6 +3,7 @@ import HomePage from '../views/HomePage.vue'
 import RutinasPage from '../views/RutinasPage.vue'
 import RecetasPage from '../views/RecetasPage.vue'
 import ComunidadPage from '../views/ComunidadPage.vue'
+import NotFoundPage from '../views/NotFoundPage.vue'  // Vista para el error 404
 
 const router = createRouter({
   history: createWebHistory('/'),
@@ -30,12 +31,19 @@ const router = createRouter({
     // Ruta para manejar rutas no encontradas
     {
       path: '/:pathMatch(.*)*',
-      redirect: '/'
+      name: 'not-found',
+      component: NotFoundPage
     }
   ],
-  scrollBehavior() {
+  scrollBehavior(to, from, savedPosition) {
     // Siempre vuelve al inicio cuando se navega
-    return { top: 0 }
+    if (savedPosition) {
+      return savedPosition
+    } else if (to.hash) {
+      return { selector: to.hash }
+    } else {
+      return { top: 0 }
+    }
   }
 })
 
